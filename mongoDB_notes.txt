@@ -1,0 +1,1005 @@
+mongoDB University
+___________________
+
+* What is the MongoDB Database?
+
+- MongoDB is a NoSQL Document Database.
+- The data in mongoDB is stored in documents.
+- Then, this documents are stored in collection of documents.
+
+Collection: It is an organized store of documents in mongoDB usually with common fields between documents. 
+
+Note: mongoDB where DB stands for database implies that it has a structured way of storing and organizing data.
+
+Note: why it is called NoSQL because mongoDB does not use related tables to store information rather it uses document.
+
+
+_________________________________________________________________________________________________________________________
+
+So, let's see some of the differences between MySQL DB & MongoDB  for better idea:
+__________________________________________________________________________________
+
+
+
+Basis 	                          MongoDB 	                                        MySQL 
+______                            _______                                             _____
+
+
+Data                 Data is stored and represented in                      Every record is stored as a table-cell 
+Structure	     JSON(Javascript Object Notation) like documents.       structure with rows and column.
+                               	              
+
+
+Schema 	     MongoDB stores data in collections with no             MySQL requires a schema definition for 
+                     enforced schema.                                       the tables in the databases.
+
+
+
+Language 	      MongoDB uses the MongoDB Query Language (MQL),	        As the name suggests MySQL uses SQL,
+                     designed for easy use by developers.                    which is a structured query language.
+
+
+
+User Friendliness    MongoDB is an attractive option to developers 	        MySQL is a bit complex compared to MongoDB 
+                     because of its easy-to-use and understands of           because of the schema of tables, foreign 
+                     data storage philosophy.                                keys, normalization, etc.
+
+
+
+Scalability	      MongoDB databases can be scaled both vertically          MySQL Database can be scaled vertically 
+                     and horizontally ( horizontal scaling also known         ( Scaling vertically means adding more 
+                     as Scaling out means adding additional nodes or          power to your existing machine for 
+                     machines to your infrastructure to match new             example upgrading CPU and RAM).
+                     demands whereas vertical scaling is adding more 
+                     power to your existing machine for example 
+                     upgrading CPU and RAM ). 	                        
+
+
+
+Foreign keys	      MongoDB does not support                              MySQL supports the usage of foreign keys
+                     the usage of                                      	   (foreign keys are used to link one table
+                     Foreign keys.                                         to another table).
+                                                                                
+
+
+Supported languages 	MongoDB supports languages like C, C++, JS.	         MySQL supports languages like C,
+                                                                           C++, JavaScript.
+
+
+Performance 	      MongoDB is optimized for write performance             MySQL is optimized for high performance
+                     (means writing speed performance of MongoDB            joins across multiple tables.
+                     database is far greater than MySQL database).	                                 
+
+
+
+Replication 	      In MongoDB, it uses sharding and replication           MySQL supports master-slave replication 
+                     (sharding allows partitioning of data across           and master-master replication ( replication
+                     multiple servers using the shared key and the          feature allows a server -the master to send 
+                     technique of synchronizing (organize) data             all changes to another server – the slave).
+                     across many servers to offer redundancy is
+                     known as replication).	                                                      
+
+
+
+Flexibility	         MongoDB documents schema-less nature makes             MySQL database is less flexible in comparison
+                     it simple to build and upgrade applications            to MongoDB because of its schema design.
+                     over time, without the need for difficult 
+                     and costly schema migration processes like 
+                     you would with a relational database.	                                          
+
+
+
+Cyber Attacks        In MongoDB, No Schema definition is required           In MySQL Risks of SQL injection attacks are
+and security         so lesser risk of attacks due to its design            there due to its schema design so MySQL is
+                     and MongoDB is more secure in comparison to            less secure in comparison to MongoDB.                                                 
+                     MySQL because of its schema-less design.                                                      
+                     
+
+
+JOIN Operations 	   MongoDB does not Support JOIN operation.	              MySQL supports JOIN operation.
+
+
+
+Community Support 	Right now MongoDB has around 200k repositories          MySQL has more than 200k repositories 
+                     over GitHub with around 1 million commits which         over GitHub and around 7 million commits
+                     shows it will be quite difficult to resolve an          so MySQL community support is far greater
+                     issue in MongoDB if you are stuck somewhere in          than MongoDB. 
+                     comparison to MySQL because of less community
+                     support and documentation ).	                                             
+
+
+
+Handling 	         MongoDB is an ideal choice if you have 	              MySQL can not be used to handle unstructured
+Unstructured         unstructured data with the potential                    data.
+Data                 for rapid growth
+
+
+
+
+*source: Interviewbit
+_______________________________________________________________________________________________________________________
+
+
+
+* What is a Document in MongoDB?
+
+- A document is a way to organize and store data as a set of field-value pairs.
+- Ex: {
+        "name" : "Ram",                             //name->field(identifier)   and  Ram->value(data)   (field : value)
+        "age"  : "16",
+        "title": "philosopher"
+      }
+
+
+* What is a Collection in MongoDB?
+
+- An organized store of documents in mongoDB, usually with common fields between documents. 
+- Ex: {
+        "name" : "Ram",
+        "age" : 16,
+        "title" : "philosopher"
+      } //document 1
+      {
+          "name" : "Sita",
+          "age" : 16,
+          "title" : "Engineer"
+      }//document 2
+      {
+          "name" : "Tom",
+          "age" : 23,
+          "title" : "Doctor"
+      }// document 3
+
+- document 1, 2, 3 have common fields between all documents present in a collection.
+
+
+Remember: There can be many documents in a collection and there can be many collections in a Database.
+ 
+________________________________________________________________________________________________________________________
+
+* What is MongoDB Atlas?
+
+- Atlas cloud DB is a full managed database with mongoDB at it's core for data storage and retrieval.
+- Atlas users can deploy clusters - A group of servers that stores data.
+- This servers are configured as Replica set - A few connected mongoDB instances(machines) storing same redundant data.
+
+* Instance - It is a single machine running locally or in the cloud with say mongoDB software.
+
+
+* So why we require more than one instances?
+
+- This, is because say if one of the instance fails then other instance will be there to support. So if a user make
+  any changes to any of the instance then there will be redundant data among the Replica set.
+  
+_________________________________________________________________________________________________________________________
+
+
+
+Chapter 2: Importing, Exporting, and Querying Data:
+___________________________________________________
+
+
+
+* How does MongoDB store data?
+
+- When we are viewing or editing simply manipulating data in mongoDB we're working with JSON file.
+
+* JSON format:
+
+- JSON -> Javascript Standard Object Notation
+- Start and end with curly braces.
+- Seperate each key and value with a colon.
+- Seperate each key and value pair with a comma.
+- "keys" must be surrounded by quotation marks.
+- "keys" are also known as "fields" in mongoDB.
+
+Note: JSON overtook XML
+
+* JSON shows up in different cases:
+___________________________________
+
+- API's
+- Configuration files
+- Log messages
+- Database storage
+
+
+* JSON pros:
+____________
+
+- Friendly
+- Readable
+- Familiar
+
+* JSON cons:
+____________
+
+- Text-based format causes slow text parsing.
+- It's also space-consuming.
+- JSON only support limited no. of datatypes.
+
+
+* So, mongoDB decided to overcome this cons(drawbacks):
+_______________________________________________________
+
+- By using BSON -> Binary JSON
+- BSON bridges the gap between binary representation and JSON format.
+- BSON is optimized for: Speed, Space, Flexibility, High-performance and also ready to be used as General-purpose
+
+
+* Some differences between JSON and BSON:
+_________________________________________
+
+* JSON:
+_______
+
+- It does Encoding in UTF-8 String.
+- The datatype supported are String, Boolean, Number, Array
+- JSON is Readable by Human & Machine.
+
+* BSON:
+_______
+
+- It does Encoding in Binary format.
+- The datatype supported are String, Boolean, Number, Array, Date, Raw binary
+- BSON is Readable only by Machine.
+
+Note: MongoDB Java Driver comes with utility methods for parsing JSON to BSON and serializing BSON to JSON.
+
+
+* Further reading: https://www.mongodb.com/json-and-bson
+_________________________________________________________________________________________________________________________
+
+Importing and Exporting Data:
+_____________________________
+
+
+* Importing and Exporting data in JSON format:
+______________________________________________
+
+- mongoimport
+- mongoexport
+
+* Importing and Exporting data in BSON format:
+______________________________________________
+
+- mongorestore
+- mongodump
+
+
+Once, the above choice is made which format you want to Import/Export then:
+
+mongodump --uri "<Atlas Cluster URI>"         //Exports data in BSON
+
+mongoexport --uri "<Atlas Cluster URI>"
+            --collection=<collection name>
+            --out=<filename>.json             //Exports data in JSON
+
+
+Ex: mongodump --uri "mongodb+srv://m001-student:m001-mongodb-basics@clusterURI.mongodb.net/database_name"
+
+* uri: Uniform Resource Identifier
+* srv: used to establish a secure connection between your application and mongoDB instance(machine).
+* username:password
+* After @ connects to unique cluster URI
+
+
+Importing:
+__________
+
+mongorestore --uri "<Atlas Cluster URI>"
+             --drop dump                //Imports data in BSON dump
+
+
+mongoimport --uri "<Atlas cluster URI>"
+            --drop=<filename>.json      //Imports data in JSON
+
+
+Code used:
+__________
+
+mongodump --uri "mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies"
+
+mongoexport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies" 
+--collection=sales --out=sales.json
+
+mongorestore --uri "mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies"  --drop dump
+
+mongoimport --uri="mongodb+srv://<your username>:<your password>@<your cluster>.mongodb.net/sample_supplies" 
+--drop sales.json
+
+_________________________________________________________________________________________________________________________
+
+Data Explorer:
+______________
+
+* Atlas UI provides us with Data Explorer so that we can query data using GUI.
+* Queries must use valid JSON format.
+* Returned documents will contain requested field:value pairs in them.
+
+
+Namespace - The concatenation of the database name and collection name is called a namespace.
+_________________________________________________________________________________________________________________________
+
+Mongo shell:
+____________
+
+* Mongo shell is a Javascript interpreter which means we can create Javascript functions and variables in it.
+* It allows user to interact with mongoDB instance using mongo shell and not the GUI.
+
+_________________________________________________________________________________________________________________________
+
+
+Find Command:
+_____________
+
+Step 1: First connect to your cluster.
+Step 2: Login
+Step 3: show dbs -->  This shows the present databases
+Step 4: use sample_training  -->  This uses the database sample_training which is present as an example
+Step 5: show collections  -->  This will show all the collections present in the sample_training database.
+Step 6: db.zips.find({"state":"NY"})   -->   zips is the collection and find function which searches in the document 
+
+* count(): We can use count() function also to count the fields.
+Ex: db.zips.find({"state":"NY"}).count()
+
+* pretty(): We can use this function to beautify make it more readable query result data.
+
+
+* it: iterates through the cursor
+* cursor: A pointer to a result set of a query
+* pointer: A direct address of the memory location
+
+Note: find() returns cursor means it returns pointer which stores address of the memory location where query is executed 
+      and it iterates the query.
+________________________________________________________________________________________________________________________
+
+Chapter 3: Creating and Manipulating Documents:
+_______________________________________________
+
+
+Study on Operations:
+____________________
+
+1) Insert
+2) Update
+3) Delete
+
+
+
+Inserting New Documents - ObjectId:
+___________________________________
+
+* Every document must have a unique _id value (serves as a Primary Key).
+* Ex: { "_id":"1a" }
+* MongoDB generates a value, so that there is one just in case. You can definitely change the default value
+  to a different value or data type, as long as they are unique to this collection and not an array data type.
+* _id must be the first field in the document if it's not and if the document is send to the server the server will
+  bring _id field to the top.
+* _ If the _id contains subfields, the subfield names cannot begin with a ($) symbol.
+* If an inserted document omits the _id field, the MongoDB driver automatically generates an ObjectId for the _id field.
+
+* To generate a new ObjectId, use ObjectId() with no argument:
+
+   x = ObjectId()
+
+* To generate a new ObjectId using ObjectId() with a unique hexadecimal string:
+
+  y = ObjectId("507f191e810c19729de860ea")
+
+  Accessing the hexadecimal string:
+
+  ObjectId("507f191e810c19729de860ea").str    //this will give the string as output
+
+
+
+Inserting New Documents - insert() and errors:
+______________________________________________
+
+* insert(): helps to insert document in collection
+ 
+* findOne(): helps to fetch a document to make a overview of the fields
+
+Note: identical documents can exist in the collection as long as their _id is different.
+Note: We can place additional rules on which documents can and cannot be inserted into a collection using MongoDB's 
+      schema validation functionality to ensure that no redundant records are present in a collection.
+
+
+Inserting New Documents - insert() order:
+_________________________________________
+
+Now if u want to insert many documents means array of documents then use array.
+
+Ex: db.inception.insert([ {"_id":1}, {"_id":2} ])
+
+* So when we use array of documents then by default the order of execution of the document is from first.
+  To change it use { "ordered": false } at last which will help to insert documents after a duplicate document also.
+
+Note: If say incepting is a collection and is not present in the database training then if we do db.incepting.insert({..})
+      Then it creates a collection. And in case of database creation also like use train will set db to train but it will
+      not be seen in Atlas but if you insert collection then it will show up.
+
+________________________________________________________________________________________________________________________
+
+Updating Documents - Data Explorer:
+___________________________________
+
+* updateOne: To update one document.
+* updateMany: To update many documents.
+
+
+Update operators:
+
+1) $inc: increment the value
+   Ex:  db.zips.updateMany({ "city": "HUDSON" }, { "$inc": { "pop": 10 } })
+
+2) $set: set the value of the field directly.
+   Ex: db.zips.updateOne({ "zip": "12534" }, { "$set": { "pop": 17630 } })
+
+3) $push: We can push document to a array field.
+
+________________________________________________________________________________________________________________________
+
+Deleting Documents and Collections:
+___________________________________
+
+* deleteOne: Deleting one document
+* deleteMany: Deleting more than one documents.
+
+Ex: db.inspections.deleteMany({ "test": 1 })
+
+Note: Remeber it's better to use use _id when deleting nor you will delete related field all.
+
+* db.inspection.drop(): This will delete the collection inspection from the database sample_training.
+
+Note: When all collections are dropped from a database, the database no longer appears.
+________________________________________________________________________________________________________________________
+
+Query Operators - Comparison:
+_____________________________
+
+* MQL --> MongoDB Query language
+
+MQL operators:
+______________
+
+Update operators: Enables user to modify data in the database
+Ex: $inc, $set, $unset
+
+Query operators: Provide additional ways to locate data within the database.
+Ex: $ has multiple uses such as:
+    1) Firstly, it precedes MQL operators.
+    2) Precedes aggregation pipeline stages.
+    3) Allow access to field values.
+
+Comparison operators:
+_____________________
+
+1) $eq: Equal to
+2) $ne: Not equal to
+3) $gt: Greater than
+4) $lt: Less than
+5) $gte: Greater than or Equal to
+6) $lte: Less than or Equal to
+
+Syntax: { <field>: { <operator>:<value> } }
+
+
+Remember:
+_________
+
+* Query operators provide additional way to locate data within the database.
+* But, Comparison operators specifically allow us to find data within a certain range.
+* $eq is the default operator when an operator is not specified.
+
+
+Subtraction:
+____________
+
+* db.trips.find({"birth year":{"$eq":1998}}).count() - db.trips.find({"birth year":{"$gt":1998}}).count()
+Output: -6
+
+________________________________________________________________________________________________________________________
+
+Logic Operators:
+________________
+
+* If we say have more than one clauses specified we can use the help of logical operators.
+
+1) $and: Match all of the specified query clauses.
+2) $or: At least one of the query caluse is matched.
+3) $nor: Fails to match given clauses.
+
+Syntax: { <operator> : [{statement1},{statement2},...]}
+
+4) $not: Negates the query requirement.
+
+Syntax: {"$not":{statement}}
+
+
+Note:
+_____
+
+1) $and is used as the default operator when an operator is not specified.
+2) Explicitly use $and when you need to include the same operator more than once in a query.
+
+
+"founded_year" : 2005,
+category_code
+"founded_month"
+
+
+Expressive Query Operator:
+__________________________
+
+* $expr allows the use of aggregation expression within the query language.
+
+Syntax:  { $expr: { <expression> } }
+
+* $expr also allows us to use variables and conditional statements.
+
+Ex:
+
+db.trips.find({ "$expr": { "$and": [ { "$gt": [ "$tripduration", 1200 ]},
+                         { "$eq": [ "$end station id", "$start station id" ]}
+                       ]}}).count()
+
+
+Note: We can use $ to denote the use of an operator and also addressing the field value.
+
+Note:
+_____
+
+1) MQL syntax: { <field> : { <operator>: <value> } }
+
+2) Aggregation syntax: { <operator>: { <field>,<value> } }
+
+
+Some example:
+_____________
+
+db.companies.find({ "$expr": { "$eq": [ "$permalink", "$twitter_username" ] }}).count()
+
+We are comparing the values of the two fields within the same document to see if they are equal using the $ to access 
+field values, and the aggregation syntax to use the $eq operator as we saw in the lesson.
+
+________________________________________________________________________________________________________________________
+
+Array Operators:
+________________
+
+
+* Earlier we have used $push which we used to push an element to the array. But, if the field is not an array then
+  $push will not work but if there's no field with that name then it will create an array and push the value.
+
+* { <array_field> : { "$size" : <number> } }
+Output: It returns all documents with exactly size 20 of the array_field
+
+* { <array_field> : { "$all" : <array> } }
+Output: It will return all the documents containing those elements of array irrespective of the order as we're using $all.
+
+Ex:
+
+db.listingsAndReviews.find(
+  { "amenities":
+     { "$all": [ "Free parking on premises", "Wifi", "Air conditioning" ] },
+    "bedrooms": { "$gte":  2 } }).pretty()
+
+
+
+* Further reading on update operators: https://docs.mongodb.com/manual/reference/operator/update/#id1
+
+
+________________________________________________________________________________________________________________________
+
+Array Operators and Projection:
+_______________________________
+
+Projection syntax:
+__________________
+
+db.collection.find({ <query> },{ <projection> })
+
+1 : include the field
+0 : exclude the field
+
+Note: Use only 1 or 0
+
+db.<collection>.find({ <field> },{ <field1>:1, <field2>:1})
+or
+db.<collection>.find({ <field> },{ <field1>:0, <field2>:0})
+
+exception:
+db.<collection>.find({ <field> },{ <field1>:1, "_id":0 })     //only with _id only you can use 1 and 0 both
+
+
+Advanced projection:
+____________________
+
+* It deals with array of documents.
+* using $elemMatch
+
+{<field> : { "$elemMatch": { <field> : <value> }}}
+
+Above query projects only the array elements with at least one element that matches the specified criteria.
+
+________________________________________________________________________________________________________________________
+
+Array Operators and Sub-Documents:
+___________________________________
+
+* MQL uses dot-notation to specify the address of nested elements in a document.
+* To use dot-notation in arrays speify the position of the element in the array.
+
+Syntax:
+_______
+
+db.collection.find({"field1.other_field.also_a_field": "value"})
+
+Ex:
+___
+
+1) db.inspections.find({ "address.city": "NEW YORK" }).count()
+
+2) db.listingsAndReviews.find({ "amenities.0": "Internet" },{ "name": 1, "address": 1 }).pretty()
+
+3) db.listingsAndReviews.findOne({},{"room_type":1,"_id":0})
+
+
+
+Questions:
+__________
+
+Query Operators - Comparison
+
+1. Find all documents where the trip was less than or equal to 70 seconds
+   and the usertype was not "Subscriber"
+2. Find all documents where the trip was less than or equal to 70 seconds
+   and the usertype was "Customer" using a redundant equality operator.
+3. Find all documents where the trip was less than or equal to 70 seconds
+   and the usertype was "Customer" using the implicit equality operator.
+
+
+Query Operators - Logic
+
+Find all documents where airplanes CR2 or A81 left or landed in the KZN
+airport.
+
+Expressive Query Operator
+
+1. Find all documents where the trip started and ended at the same station.
+2. Find all documents where the trip lasted longer than 1200 seconds, and
+   started and ended at the same station.
+
+Array Operators
+
+1. Find all documents that contain more than one amenity without caring
+   about the order of array elements.
+2. Only return documents that list exactly 20 amenities in this field and
+   contain the amenities of your choosing.
+
+Array Operators and Projection
+
+1. Find all documents in the sample_airbnb database with exactly 20
+   amenities which include all the amenities listed in the query array, and display their price and address.
+2. Find all documents in the sample_airbnb database that have Wifi as one of
+   the amenities only include price and address in the resulting cursor.
+3. Find all documents in the sample_airbnb database that have Wifi as one of
+   the amenities only include price and address in the resulting cursor,
+   also exclude "maximum_nights".
+   Was this operation successful? Why?
+4. Find all documents in the grades collection where the student in class
+   431 received a grade higher than 85 for any type of assignment.
+5. Find all documents in the grades collection where the student had an
+   extra credit score.
+
+Array Operators and Sub-Documents
+
+1. Find any document from the companies collection where the last name
+   Zuckerberg in the first element of the relationships array.
+2. Find how many documents from the companies collection have CEOs who's
+   first name is Mark and who are listed as the first relationship in this
+   array for their company entry.
+3. Find all documents in the companies collection where people named Mark
+   used to be in the senior company leadership array, a.k.a the
+   relationships array, but are no longer with the company.
+
+________________________________________________________________________________________________________________________
+
+Chapter 5: Indexing and Aggregation Pipeline:
+_____________________________________________
+
+
+Aggregation Framework:
+______________________
+
+* It is another way to query data in MongoDB.
+* Everything done by MQL can also be done by Aggregation framework.
+* When using aggregation use aggregate rather than find.
+* Aggregation is the superset of MQL.
+* The aggregation framework allows us to compute and reshape data via using stages like $group, $sum, and others.
+
+
+$project:
+_________
+
+* Passes along the documents with the requested fields to the next stage in the pipeline. The specified fields can be 
+  existing fields from the input documents or newly computed fields.
+
+Ex:  { $project: { "<field1>": 0, "<field2>": 0, ... } } // Return all but the specified fields (excluding)
+
+
+
+$match:
+_________
+
+* Filters the documents to pass only the documents that match the specified condition(s) to the next pipeline stage.
+
+Ex: db.articles.aggregate(
+    [ { $match : { author : "dave" } } ]
+);
+
+Note: $match does not accept raw aggregation expression.
+Syntax: { $match: { $expr: { <aggregation expression> } } }
+
+
+
+$group:
+_______
+
+* $group: An operator that takes the incoming stream of data and push it into multiple distinct category.
+
+Ex:
+___
+
+db.articles.aggregate( [
+  { $match: { $or: [ { score: { $gt: 70, $lt: 90 } }, { views: { $gte: 1000 } } ] } },
+  { $group: { _id: null, count: { $sum: 1 } } }
+] );
+
+Explaination:
+_____________
+
+In the aggregation pipeline, $match selects the documents where either the score is greater than 70 and less than 90 
+or the views is greater than or equal to 1000. These documents are then piped to the $group to perform a count. 
+
+The aggregation returns the following:
+
+{ "_id" : null, "count" : 5 }
+
+
+$sum:
+_____
+
+* Calculates and returns the collective sum of numeric values. $sum ignores non-numeric values.
+
+
+References:
+___________
+
+1) $match: https://docs.mongodb.com/manual/reference/operator/aggregation/match/
+2) $sum: https://docs.mongodb.com/manual/reference/operator/aggregation/sum/
+3) $count: https://docs.mongodb.com/manual/reference/operator/aggregation/count/
+
+
+Some more examples:
+___________________
+
+1)  db.listingsAndReviews.aggregate([
+                                  { "$project": { "address": 1, "_id": 0 }},
+                                  { "$group": { "_id": "$address.country",          //group by expression (to identify the group to which it belongs to)
+                                                "count": { "$sum": 1 } } }
+                                ])
+
+
+2)  db.listingsAndReviews.aggregate([{"$project":{"room_type":1,"_id":0}},
+    {"$group": {"_id":"$room_type","count":{"$sum":1}}}])
+
+
+3) db.listingsAndReviews.aggregate([ { "$group": { "_id": "$room_type" } }])
+
+________________________________________________________________________________________________________________________
+
+sort() and limit():
+___________________
+
+Some cursor methods:
+____________________
+
+1) sort()
+2) limit()
+3) pretty()
+4) count()
+
+1) sort():
+__________
+
+* We can apply sorth method to the cursor(result query).
+
+Ex:
+___
+
+db.zips.find().sort({ "pop":1, "city": -1 })
+
+
+* Here, above we are doing sorting in ascending order of pop from 0 to infinity and showing city in descending order 
+  from Z to A.
+  So, 1 for Ascending and -1 for Descending order.
+
+
+2) limit():
+___________
+
+* It limits the data incoming to specified value.
+
+Ex:
+___
+
+db.zips.find().sort({ "pop":1, "city": -1 }).limit(10)
+
+* It will show 10 datas only if present.
+
+
+Note: Always use limit() method first after sort().
+
+
+But, wait their is a catch:
+___________________________
+
+db.companies.find({ "founded_year": { "$ne": "" }},
+                  { "name": 1, "founded_year": 1 }
+                 ).limit(5).sort({ "founded_year": 1 })
+
+
+* While the limit() and sort() methods are not listed in the correct order, MongoDB flips their order when executing 
+  the query, delivering the results that the question prompt is looking for.
+
+________________________________________________________________________________________________________________________
+
+Introduction to Indexes:
+________________________
+
+* It makes query more efficient.
+* It boosts query performance.
+
+* Index is a data structure that optimizes query.
+
+
+Simple index:
+_____________
+
+db.trips.createIndex({ "birth year": 1 })
+
+Note: It doesn't really matter whether the index was created in increasing or decreasing order when it is a 
+      simple single-field index.
+
+
+
+Compund index:
+______________
+
+db.trips.createIndex({ "start station id":1, "birth year":1 })
+
+Now, when we are finding say:
+_____________________________
+
+db.trips.find({ "start station id": 476}).sort("birth year":1)
+
+* Here, above the sorting will not ben done as it's already sorted and using index will get the output.
+
+________________________________________________________________________________________________________________________
+
+Introduction to Data Modeling:
+______________________________
+
+* Data modeling: a way to organize fields in a document to support your application performance and querying capabilities.
+
+* Data that is used together should be stored together evolving application implies an evolving data model.
+
+* Data modeling is a way to organize your data, which includes making decisions about fields, collections, 
+  and datatypes that will be used in each collection.
+
+________________________________________________________________________________________________________________________
+
+Upsert - Update or Insert:
+__________________________
+
+* Upsert is a hybrid of Update and Insert it should only be used when neeeded.
+
+* By default upsert is set to false.
+
+* If upsert is set to true then the update will happen if their's a match to the filter specified and if there's no match
+  then the insert will happen.
+
+* When upsert is set to true it can perform an insert if the query predicate doesn't return a matching document.
+
+
+
+When to use then?
+_________________
+
+upsert:true
+____________
+
+* use it when there are conditional updates.
+
+
+upsert:false(by default false)
+______________________________
+
+* No need to mention in the query.
+* use it when you want to update existing document.
+* or to insert a brand new document.
+
+
+Ex:
+___
+
+db.iot.updateOne({ "sensor": r.sensor, "date": r.date,
+                   "valcount": { "$lt": 48 } },
+                         { "$push": { "readings": { "v": r.value, "t": r.time } },
+                        "$inc": { "valcount": 1, "total": r.value } },
+                 { "upsert": true })
+
+________________________________________________________________________________________________________________________
+
+Lab Questions:
+______________
+
+Aggregation Framework
+
+1. Using the aggregation framework find all documents that have Wifi as one
+   of the amenities. Only include price and address in the resulting cursor.
+
+2. Which countries have listings in the sample_airbnb database?
+3. How many countries have listings in the sample_airbnb database?
+
+sort() and limit()
+
+1. Find the least populated ZIP code in the zips collection.
+2. Find the most populated ZIP code in the zips collection.
+3. Find the top ten most populated ZIP codes.
+4. Get results sorted in increasing order by population, and decreasing
+   order by city name.
+
+Introduction to Indexes
+
+Create two separate indxes to support the following queries:
+
+db.trips.find({"birth year": 1989})
+
+db.trips.find({"start station id": 476}).sort("birth year": 1)
+
+________________________________________________________________________________________________________________________
+
+Chapter 6: Next Steps
+_____________________
+
+Atlas Features - More Data Explorer:
+____________________________________
+
+* You can choose to export the pipeline to one of four programming languages, and select to view the import statements 
+  that are needed in the application for this pipeline to work.
+
+
+Atlas Products and Options:
+___________________________
+
+* Billing is done at organizational level.
+* All projects are within organization.
+* Team can be assigned to projects within organization.
+* Cluster must have a unique name within a project.
+
+
+Data visualizations:
+____________________
+
+* Charts is available for all MongoDB Atlas Clusters and allows you to build visualizations of your data using the 
+  aggregation pipeline or even the MQL to filter data before creating charts.
+
+
+What is MongoDB Compass?
+________________________
+
+* MongoDB Compass is a powerful GUI for querying, aggregating, and analyzing your MongoDB data in a visual environment.
+

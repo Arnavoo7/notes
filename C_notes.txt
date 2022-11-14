@@ -1,0 +1,1058 @@
+Jenny Mam notes:
+_________________
+
+
+Introduction:
+______________
+
+* C is preferred as system programming language.
+* Dennis Ritchie in 1972 at Bell labs.
+* C is the successor of B language.
+* C was standardized by ANSI in 1989.
+
+
+Levels of programming language:
+________________________________
+
+* Low-level: 
+
+- Machine language and Assembly language are machine oriented language.
+- The execution is fast by CPU as the program is written in low lvl language but drawback is that there is problem
+  understanding the language by humans.
+- The programs writeen in machine language are system dependent, programs are not portable.
+
+So, to overcome some drawbacks of Machine lvl language Assembly language came into picture
+
+- In Assembly language we can use mnemonics(symbols) like ADD for addition, MOV for moving file so it's bit easier than 
+  01010 machine language.
+- Here Assembly code is converted by Assembler to machine code which is understandable by machine.
+
+
+Language translators:
+______________________
+
+* Compiler:
+____________
+
+- Compiler compiles the high lvl programming lang. at once and if there are no errors then it converts it into machine code.
+- In compiler translation is done and then object code is executed.
+- Debugging is tougher in compiler method as whatever error arrives it arrives at last after the code is compiled.
+- In compiler method when we get the object code(machine code) we can execute obj code whenever required no need to compile
+  the source code again.
+- Some of the high level programming lang. which uses compiler method are C and C++.
+- Compiler program need not be in memory while execution of machine code.
+
+* Interpreter:
+_______________
+
+- Interpreter translates one line and then execute again interpret and then again execute output.
+- Here, at interpreter translation and execution is done parallely.
+- It is slower process compare to compiler.
+- Debuging is easier in case of interpreter method as line by line translation is done.
+- In interpreter method, we don't get obj code file so we have to interpret the source code whenever it is required.
+- Some of the high level programming lang. which uses interpreter method are Javascript, python and PHP.
+- Interpreter program will be there in memory as the translation and execution is done parallely.
+
+___________________________________________________________________________________________________________________________
+
+Features of C language:
+________________________
+
+* It is High level language.
+* C has 32 keywords compare to other high lvl lang. which has more keywords.
+* C is the core mother language from where different languages were derived.
+* It has built in functions and operators.
+* It is a structured and modular language which means we categorized them in functions.
+* It supports use of pointers by which we can directly access the memory address.
+* It is extensible language means we can add our own library.
+* In C, compilation and execution are much faster.
+* It supports features of Dynamic memory allocation.
+* It is case sensitive language.
+* Also, C is popular in embedded system programming.
+
+___________________________________________________________________________________________________________________________
+
+Execution of c program:
+
+Step 1: sum.c  (source file)
+Step 2: preprocessor directive is the (# symbol) where the in-built functions which you are using are defined in that 
+       header file which has those in-built function defined.
+Step 3: Compiler will then start compiling your program and if any error found then you have to edit your source code.
+Step 4: If no syntax error is there then compiler will generate assembly file.
+Step 5: Then the assembly file will be translated to the object code using Assembler program.
+Step 6: Then Linker will link all library functions with object code.
+Step 7: Now, the (exe)executable file will be created.
+Step 8: Then, Loader comes who will load the exe file into main memory.
+Step 9: If any error come then you have to do the needful in the source code or else if no error comes you get your desired
+        output.
+
+___________________________________________________________________________________________________________________________
+
+Constants in C:
+________________
+
+1) Integers:
+
+- decimal: 0-9  base:10
+- Octa: 0-7     base:8
+- hexa: 0-15    base:16     (10-15 is A-F)
+
+2) Floating:
+
+- Real constants 
+- Ex: 56.2
+
+3) Character:
+
+- Single character constant: 'a', 'B', '/char constant'
+- String constant: Sequence of chars enclosed within "" like "Hello". But say "a" is string constant and 'a' is char const. 
+
+Note: the characters are stored in ASCII format value.
+Note: We have to define constant variable using const keyword.
+Note: #define MAX 10     //we can provide a global constant it's a macro definition
+___________________________________________________________________________________________________________________________
+
+Variables:
+__________
+
+* Variables in the main memory are the container which has name and it holds value.
+
+Declaration and initialization:
+________________________________
+
+int a;       //declaration
+a = 10;      //initialization
+int a = 10;  //declaration and initialization
+___________________________________________________________________________________________________________________________
+
+Identifiers & Keywords:
+________________________
+
+* Keywords are pre-defined words. There are 32 keywords in C. Some of the keywords are like if, else, for, continue,do etc.
+* Identifier is to identify something like variable name, function name. User define the name
+
+
+Note: Keywords cannot be used as user defined keywords(identifier) such as variable name.
+___________________________________________________________________________________________________________________________
+
+Datatypes in C:
+________________
+
+* It tells the type of data stored in a variable.
+
+Types of datatypes:
+____________________
+
+1) Primary datatypes: These datatypes are pre-defined in the C library function.
+Ex: int, float, double, char, void
+
+2) Derived datatypes: These datatypes are derived from primary datatypes.
+Ex: Array, structure, union, pointers
+
+3) User-defined datatypes: These datatypes are defined by user.
+Ex: typedef, enumerated datatype
+typedef: We can give a alias name to predined datatypes like typedef int a;  then using a data = 23;  (a instead of int)
+
+
+Size of datatypes:
+___________________
+
+
+Note: In 'C' programming, compiler will take every variable as a signed type , by default.
+
+
+1) int:
+
+- short int - 2bytes    (format specifier: %hi --> signed    and   %hu --> unsigned)  range: -32,768 to 32,767
+- int - 4 bytes  (default set to keep signed)     (format specifier: %d)
+- long int - 8 bytes            (format specifier: %ld)
+- signed int: -32768 to 32767   (int is signed int same)
+- unsigned int: depending upon the architecture and compiler used declare the size (remeber unsigned will store +ve value)    (format specifier: %u)
+
+2) char: 1 byte
+   signed: -128 to 127
+   unsigned: 0 to 255 (128*2 -> (range: 0 to 255) = 256)
+
+3) float: 4 bytes     (format specifier: %f)
+   double: 8 bytes  (format specifier: %lf)
+   long double: 16 bytes  (format specifier: %Lf)
+
+___________________________________________________________________________________________________________________________
+
+Operators in C:
+_______________
+
+1 + 2  -->   digits are operand and + is the operator
+a = 5 + 5;   //expression
+
+Types of operators:
+___________________
+
+1) Unary: Performing operation on 1 operand.
+Ex: unary minus (-), ++, -- , ! (logical not),  &  (address of) , sizeof
+
+2) Binary operator: Performing operation on 2 operands.
+Ex: Arithmetic, relational, logical, Bitwise, comma operator(,)
+
+3) Ternary operator: Performing operation on 3 operands.
+Ex: x ? a : b;     //x is the condition if x is true then execute a or else execute b.
+
+Note: % (Modulus operator will only work for int not float values)
+
+
+
+Bitwise operators:
+__________________
+
+int a = 10, b = 5;
+
+1) &   (Bitwise AND)
+Ex: a & b  (So first converting decimal to bits)
+    a = 1010 , b = 0101 (binary form)
+    Now, applying logical & operator to binary form
+    Output: 0000
+
+
+2) |   (Bitwise OR)
+Ex: a = 1010, b = 0101
+    Now, applying logical | operator to binary form
+    Output: 1111
+
+
+3) ^   (Bitwise XOR)
+Ex:  a = 1010, b = 0101
+     Now, applying XOR ^ operator to binary form
+     XOR concept: If both value are same it will be 0 otherwise 1
+     Output: 1111
+
+
+4) ~   (Bitwise NOT)
+Ex:  a = 1010
+     Now, applying NOT ^ operator to binary form
+     Output: 0101
+     Note: negative number is stored using 2's compliment
+
+
+5) <<  (Left shift)
+Ex:  10 << 2  (Shift 10 by 2)
+     10x2^2 = 40 (shortcut way)
+
+6) >>  (Right shift)
+Ex: 10 >> 4 (Shift 10 by 4)
+    10 / 2^4 = 10 / 16 = 0
+
+
+Special operator comma ,
+________________________
+
+* comma has the least precedence.
+
+Ex: int a;
+    a = 5,4;    (a = 5 because = has high precedence then ,)
+    int a = (5,4);  (a = 4 () has highest precedence so , operator will evaluated first digit but the last one is taken)
+    int a = 5,4;   (not valid because of declaration)
+
+___________________________________________________________________________________________________________________________
+
+Precedence & Associativity rule:
+________________________________
+
+Prioritywise                    Associaitvity
+
+1)  () . -> i++ i--                 L->R
+2)  ++i --i + - (unary) ! ~         R->L
+    * &  sizeof(type)
+3)  *  /  %                         L->R
+4)  +  - (binary)                   L->R
+5)  <<  >>                          L->R
+6)  < <=  >  >=                     L->R
+7)  ==   !=                         L->R
+8)  &                               L->R
+9)  ^                               L->R
+10) |                               L->R
+11) &&                              L->R
+12) ||                              L->R
+13) ?:                              R->L
+14) =  +=  %=  >>= etc.             R->L
+15) ,                               L->R
+
+___________________________________________________________________________________________________________________________
+
+In-built function:
+___________________
+
+* scanf(): Remember it returns no. of input.
+
+Control statements:
+
+* if-else: Without if you can't write else but without else you can write if conditional block.
+
+Switch statement:
+__________________
+
+* It is the replacement of else-if ladder because of it's fast execution.
+
+___________________________________________________________________________________________________________________________
+
+Loops:
+______
+
+* When we want to repeat some satements in the program we can use loop.
+
+1) Entry-controlled loop:
+_________________________
+
+- for loop:
+
+for(initialization;condition;inc/dec)
+{
+  //body of loop
+}
+
+Some for loop formats:
+______________________
+
+1) int i=1; for(;i<=5;i++){}   //valid
+2) for(int i=1,int j=0;i<=5;i++){}   //valid
+3) for(int i=1; ; i++)    //infinite loop if condition is removed
+4) for(i=1,j=0;i<=5,j<3;i++)      //Here, first condition i<=5 is simple statement and j<3 is the end statement where j is 
+   not incrementing and hence it goes to infinite loop
+5) for(i=1,j=0;i<=3;i++,j++)    //valid
+6) for(; ;){printf("Hi");}      //valid but infinite loop
+
+
+2) Exit-controlled loop:
+________________________
+
+- do-while loop
+
+____________________________________________________________________________________________________________________________
+
+
+
+Difference between for, while and do while loop in C:
+_____________________________________________________
+
+
+1)
+
+* for is entry-controlled-loop
+* while is entry-controlled-loop
+* do-while is exit controlled loop
+
+
+
+2) Syntax difference:
+
+* for(initialization; condition; update)
+  {
+  	//body of loop
+  } 
+  
+
+* while(condition)
+  {
+  	//body of loop
+  }
+  
+  
+* do
+  {
+  	//body of loop
+  }while(condition);  
+
+
+
+3) 
+
+* for loop body doesn't execute if the condition is false.
+
+* while loop body also doesn't execute if the condition is false.
+
+* do-while loop body does execute 1 time if the condition is false then it checks for the condition in while.
+
+
+
+4)
+
+* When we know the exact iteration till which we want to run the loop we can use for loop. Eg: Like printing nos. from 1 to 10.
+
+* But, in case of while condition is use when we are not sure when the condition will be false. Eg: while(1) { //body of loop }.
+
+* In do-while case it is same as while but with a 1 time execution of do part.
+
+____________________________________________________________________________________________________________________________
+
+
+
+break statement in C:
+_____________________
+
+
+* break is a keyword in C.
+
+* We can use break in loops and switch.
+
+____________________________________________________________________________________________________________________________
+
+
+
+Continue statement in C:
+________________________
+
+
+* continue is a keyword in C.
+
+* We can use continue in loops.
+
+* It skips the sattement after continue keyword if there is and move to the next iteration of the loop.
+
+____________________________________________________________________________________________________________________________
+
+
+
+Need of Nested Loops in C:
+__________________________
+
+
+* It is mostly used when we want print a pattern basically with Multidimensions.
+
+* It consists of Outer loop and Inner loop.
+___________________________________________________________________________________________________________________________
+
+
+
+Arrays in C:
+____________
+
+How in array we can access a particular element directly the formula is:
+
+Note: Array name is actually internally constant pointer who points to base address(1st element) and addr cannot be changed.
+
+
+int a[2] = {1,2,3};
+
+Ex:
+___
+
+Base address + ( index * size_of_int )
+
+2000 + ( 2 * 4)  =>  2008 this will give the value directly which is 3
+
+
+Some notes on Array:
+____________________
+
+1) Array is a collection of more than one data item of same datatype.
+
+2) All the data items are stored in contiguous memory locations.
+
+3) Number of data item array holds is size of array
+
+4) One the size of the array has been fixed, it can't be manipulated at run time.
+
+5) Index starts from 0.
+
+6) Array is known as derived datatype: They are called as derived because we derived it from fundamental(pre-defined) datatypes like int,
+   float, char. Some of the derived datatypes are such as array, pointer, structure.
+
+7) Accessing of any element is faster using Index of array.
+
+8) It allows us to store data in multidimensional form.
+
+9) Inserting and deleting elements from array is costly.
+
+10) No bound checking in C (means if you try to access outside array boundary limit outside length of array then 
+    Garbage value is given).
+___________________________________________________________________________________________________________________________
+
+
+
+2D Arrays in C:
+_______________
+
+* 2D array  is Array of 1D array.
+* It is in matrix form.
+
+Syntax:
+_______
+
+datatype  array_nmae[row_size][col_size];
+
+
+Initialization:
+_______________
+
+
+1) At Compile Time:
+___________________
+
+int a[2][3] = { {0,0,5},
+                {6,7,8} 
+              };
+
+
+//this will not give an error as we're mentioning in initialization part
+int a[][3] = { {0,0,5},
+                {6,7,8} 
+              };
+
+
+
+2) At Run Time:
+_______________
+
+- Using loops.
+
+Example:
+________
+
+int a[2][3];
+
+for(int i=0; i<2; i++)
+{
+  for(int j=0; j<3; j++)
+  {
+    scanf("%d", &a[i][j]);
+  }
+}
+
+
+___________________________________________________________________________________________________________________________
+
+
+
+Strings in C:
+_____________
+
+- It is a array of characters.
+- String is only made of chars, numbers, whitespace etc if all writeen inside "".
+- String always store null char(\0) at end.
+
+
+Syntax:
+_______
+
+datatype arrayname[size];
+
+
+Example:
+________
+
+1) char name[10] = 'Jenny';       (right)
+
+2) char name[10] = { 'J', 'e', 'n', 'n', 'y', '\0' };     (right)
+
+3) char name[] = { 'J', 'e', 'n', 'n', 'y', '\0' };     (right)
+
+4) char s[5] = "Hello";     (Wrong) as no space left for \0 char
+
+
+
+Rules for taking input:
+_______________________
+
+char name[10];
+
+printf("Enter name: ");
+scanf("%s", name);     //got value avatar aang
+printf("%s", name);   // We will get avatar only because scanf will consider it as end of string it will not consider white space
+
+Note: So, to overcome this problem we can use gets() function.
+
+Example: gets(name); //instead of scanf line above
+Then, printing will be avatar aang. (note: but gets has a problem say you have alloted 5 bytes of memory but the string which you
+have provided is larger so using gets will use the 5 bytes memory and also then extend it by using buffer memory and we could loose
+our important data) So, it doesn't checks for array bound. *(So, to avoid this we can use fgets).
+
+
+
+Rules for printing input:
+_________________________
+
+char name[30];
+scanf("%s", name);
+printf("%10.8s", name);     // (10 is the field-width)     avatar
+
+Also, you can use puts(name);
+Note: puts add \n internally and cursor moves to nxt line.
+
+
+
+fgets:
+______
+
+fgets(name, 15, stdin);
+puts(name);
+___________________________________________________________________________________________________________________________
+
+
+
+Pointers in C:
+______________
+
+- A pointer stores address of a variable.
+
+
+Declaration & Initialization:
+_____________________________
+
+int a= 20;k
+int *p = &a;
+
+
+& (address of) and * (Indirection or dereferencing) operator:
+_____________________________________________________________
+
+int a=10, b=20;
+int *p, int *q;
+
+p = &a;
+q = &b;
+
+
+
+Pointer assignment:
+___________________
+
+int a=10, b=11;
+int *p=&a, *q=&b;
+
+
+Pointer Arithmetic:
+___________________
+
+Addition:
+_________
+
+- We cannot perform addition of 2 pointers.
+
+- But, we can do p+1 ( where, p is a pointer variable ),    p+1 is calculated as base address + 1 * (4 size of int)
+
+
+Subtraction:
+____________
+
+- Here, we can perform subtraction of 2 pointers and it will give int value to show the difference between the 2 pointers.
+
+
+Increment/ Decrement:
+_____________________
+
+- *p++ ( If pointer p is pointing to 1000 address then inc. will goto 1004 address)
+
+___________________________________________________________________________________________________________________________
+
+
+Void pointer:
+_____________
+
+- It's like a Generic pointer which can store any datatype.
+- We cannot derefence a void pointer like (*vp) without typecasting so first we have to typecast like if vp store address of
+  a variable which is of int type then typecasting it will be *(int*)vp (vp first converted to int then dereferenced).
+
+- Advantage of using void pointer is that we can access multiple datatype variables using 1 void pointer and access the value
+  of the variables using explicit typecasting.
+
+Example:
+
+int a = 10;
+
+void *vp;
+
+vp = &a;  //We can store any datatype variable here
+
+printf("%d", *(int*)vp);  //just typecast 
+___________________________________________________________________________________________________________________________
+
+
+
+Null pointer in C:
+__________________
+
+
+int *ptr = NULL or 0( but better to use NULL);      //It is a null pointer so it's not pointing to any memory address
+
+Note: We cannot dereference a Null pointer as it is not pointing to a memory address.
+
+
+We can do this like to check if pointer is pointing to a variable or containing 0 i.e NULL.
+
+if( pointer == NULL)
+{
+
+}
+else
+{
+
+}
+
+Note: Null pointer can be used in error handling in C.
+___________________________________________________________________________________________________________________________
+
+
+
+Dangling pointer in C:
+______________________
+
+- Dangling pointer is pointing to a free memory location.
+- It is a pointer which is pointing to undefined memory address we don't know what it contains. ( It is called as Dangling 
+  pointer as say if first it was pointing to a block of memory in say in heap memory and after sometime that block if free but still
+  pointer is pointing to that memory block i.e, it's called Dangling pointer).
+
+___________________________________________________________________________________________________________________________
+
+
+Wild pointer:
+_____________
+
+- int *ptr;       //a wild pointer which can be pointing to random memory location ( risky to use ), it's better to use NULL.
+
+___________________________________________________________________________________________________________________________
+
+
+Functions in C:
+_______________
+
+
+- Function provides us the power of Reusability of code means (writing the code ones and using it multiple times in the program).
+
+- main() is user-defined function in terms of the body of the main function and the prototype(rules) of declaring the main 
+  function is predefined.
+
+
+Structure of function:
+______________________
+
+
+1) Function declarartion: At the top we declare the function prototype. And, suppose we have not declared at top and calling
+   first without defining the function first and call the function first then the compiler will do implicit declaration of 
+   function where it assumes that the return type of function is int(default type) but if the user has defined the return type
+   of function as float then the compile will throw an error that (type mismatched).  
+
+   Hence, it's always better to declare the function prototype at top.
+
+
+2) At function prototype, it's not necessary to mention variable name just mention (type which is mandatory)
+   Example: void sum(int, int)  //inside brackets they are parameters
+
+   At function definition, it's necessary to mention the type and variable name 
+   Example: void sum(int a, int b)      //inside the brackets they are Formal parameters
+
+   At function call we pass arguments(actual parameters) which can pass value directly also or variable name.
+
+
+  Note: The function declaration and definition paramters must be insame order yes you can use different variable names but Remember
+        to use same datatype.
+___________________________________________________________________________________________________________________________
+
+
+Call by Value & Call by Reference:
+__________________________________
+
+* see from line no. 790 at c notes.
+
+
+
+
+Classification of functions:
+____________________________
+
+
+1) No argument without return type
+
+Example: void func(void)
+
+
+2) Function Without Argument With Return Type
+
+Example: int func(void)
+
+
+3) Function With Argument Without Return Type
+
+Example: void func(int x, int y)
+
+
+4) Function With Argument and Return Type
+
+Example: int func(int x, int y)
+___________________________________________________________________________________________________________________________
+
+
+static variable:
+________________
+
+int incr( int i )
+{
+
+  static int count = 0;   //Here, static variable is present throughout the program and will keep it previous stored value 
+                          //throughout the program
+  count = count + i;
+  return(count);
+}
+
+int main()
+{
+  
+  int i,j;
+  for( i=0; i<=4; i++)
+  {
+    j = incr(i);
+  }
+}
+
+___________________________________________________________________________________________________________________________
+
+
+
+Passing Array as an argument:
+_____________________________
+
+Example: passing string as an argument is a great example of passing array of chars as an argument.
+
+- when we pass array name to a function we are actually sending base address(Call by reference).
+
+
+
+
+Passing pointer from function:
+______________________________
+
+#include<stdio.h>
+
+int* returnPointer(int a[])    //receiving only 
+{
+    return (a+4);
+}
+
+int main()
+{
+  
+  int a[] = { 1,2,3,4,5 };      //declaring and initialising an array
+  int* p = a;                   //storing base address of array a in pointer p
+  printf("%d\n", *p);           //printing the value of the address holded by p
+  p = returnPointer(a);         //function calling
+  printf("%d\n", *p);
+  return 0;
+}
+___________________________________________________________________________________________________________________________
+
+
+Function pointer in C:
+______________________
+
+- It means pointing to a function using a pointer i.e, (function pointer).
+
+Syntax:   return_type ( *pointer_name )( Datatype of arguments );
+
+Example:
+________
+
+//There is a function name sum so we define it below:
+
+int sum( int a, int b )
+{
+
+  return (a+b);
+}
+
+
+//Now, we will define a pointer which is pointing to the function sum:
+
+int ( *ptr )(int, int) = &sum;    //pointer ptr is holding the address of function sum which is of type int so return type
+                                  //is int and the in the brackets the argument [ and the reason why we are keeping *ptr in 
+                                  // bracket because of the priority issue so that ptr doesn't behave like a function and it'same
+                                  //arguments (int, int)]
+
+
+So, we can now use ptr(1,2) and pass 1 and 2 as an argument to sum function
+
+
+
+Callback Function:
+__________________
+
+- Passing a function to a function means passing address of a function to a function is (Callback function).
+
+
+
+Explaining through a program:
+_____________________________
+
+see 103 Jenny ma'am lecture
+
+___________________________________________________________________________________________________________________________
+
+
+
+Recursion:
+__________
+
+- Function calling itself is Recursion.
+- Recursion has a base termination condition so that it doesn't get into infinite loop (function keeps on calling itself).
+
+
+
+Types of Recursion:
+___________________
+
+
+1) Direct recursion: The function which is calling it's function directly is called as Direct Recursion.
+
+Example:
+________
+
+
+func1()
+{
+  func1();
+}
+
+
+
+2) Indirect recursion: If function A is calling another function B and this B function is calling again function A then this is 
+  known as Indirect recursion. (A circular representation)
+
+Example:
+________
+
+
+  functionA
+  {
+    functionB();
+  }
+  
+  functionB
+  {
+    functionA();
+  }
+
+
+
+
+3) Tail recursion: The recursion will be at the end of the function and after that no statements are there.
+
+
+4) Non-Tail recursion: After the recursion call there will be some statements or operations to be executed. 
+
+___________________________________________________________________________________________________________________________
+
+
+
+Structure in C:
+_______________
+
+- We can use structure when we want to store heterogeneous datatypes like:
+
+
+Example:
+________
+
+
+struct Student  //the whole is datatype full (struct Student)
+{
+  int rollno;
+  char name[20];
+  float marks;
+};    //remember the ;
+
+Some important points to consider:
+
+1) variable name cannot be same 
+2) assigning variable not allowed
+
+
+
+Creating object of structure:
+_____________________________
+
+struct Student
+{
+
+  int roll;
+  float marks;
+  char name[20];
+
+}s;   (second way of creating object)
+
+int main()
+{
+
+  int a;
+  struct Student s;   //s is the object of the struct Student   (one way of creating object)
+
+}
+
+
+
+Compile time initialization:
+____________________________
+
+struct Student
+{
+
+  int roll;
+  char name[20];
+  float marks;
+
+}s={20. "Avatar", 60.7};      //1st object initialized
+
+int main()
+{
+  struct student s1={1, "jenny", 90.12};    ////2nd object initialized
+  s=s1    //valid   (possible only when the datatype are same)
+  s.roll  //use dot operator to access the value
+}
+
+
+
+Array of structure:
+___________________
+
+struct Student
+{
+
+  int roll,
+  char name[20];
+};
+
+int main()
+{
+  struct Student s[10];   //For storing 10 students profile
+  return 0;
+}
+
+
+
+
+Pointer to Structure:
+_____________________
+
+struct Student
+{
+  int roll;
+  char name[20];
+};
+
+int main()
+{
+  struct Student s={12,"aang"};
+  struct Student *ptr = &s;    //pointing to object s and s is pointing to structure so indirectly pointer to structure
+
+  printf("Roll is: %d", ptr->roll);   //or *ptr.roll
+  return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

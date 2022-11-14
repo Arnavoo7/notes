@@ -1,0 +1,110 @@
+Git
+____
+
+*Git is Version Control System (VCS) using which we can track, manipulate our source code versions.
+
+Install Git:
+____________
+
+* sudo apt-get install git
+* check version for confirmation of installation: git --version
+
+
+Assign your username and email for global access and to identify yourself:
+__________________________________________________________________________
+
+* git config --global user.name "Avatar"
+* git config --global user.email "avatar@gmail.com"
+
+To verify if user is set: git config --global user.name/user.email
+
+
+Step1: To start creating a empty Repository:
+____________________________________________
+
+* git init
+
+
+Step 2: To check the cuurent status:
+____________________________________
+
+* git status
+
+
+Step 3: To add untracked files so that later we can commit also known as (staging area):
+________________________________________________________________________________________
+
+* git add (filname is single file present)
+* git add -A (when more than one file present)
+
+
+Step 4: To (commit) all the files which are waiting at (staging area):
+______________________________________________________________________
+
+* git commit -m "initial commit"  (u can provide any meaningful message)
+
+
+Step 5: To see all previous and currrent commit:
+________________________________________________
+
+* git log
+* u will see something like e12b3bd7e564443799a1f73e3190cc9ae530ae5a (this is the hash code which is unique to every commit)
+
+
+Step 6: Now to rollback/Undo to a commit we can use:
+____________________________________________________
+
+* git checkout (hash_code)
+
+
+Step 7: Also to change branch we use checkout:
+______________________________________________
+
+* git checkout (branch_name_like_master)
+
+
+Step 8: To create a branch:
+___________________________
+
+* git branch (branch_name)
+* git branch (to see all branches)
+
+
+Step 9: To merge branches:
+__________________________
+
+* git merge dev (current branch is master it gets merged with dev branch)
+
+
+Step 10: To ignore some files from tracking done by git use:
+____________________________________________________________
+
+* Make a file .gitignore and add secret code there which will be ignored by git
+
+
+
+
+
+
+Github
+______
+
+Github is a Hosting service using which we can manage our repositories.
+
+
+Then:
+_____
+
+* git remote add origin https://github.com/Arnavoo7/jobs.git
+
+* git push -u origin master
+
+
+
+
+CI=npm run build
+
+
+
+
+

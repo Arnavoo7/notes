@@ -1,0 +1,117 @@
+From React Docs:
+________________
+
+
+Introducing JSX:
+________________
+
+Example: const element = <h1>Hello, world!</h1>;
+
+Note: The above example, is neither a string nor HTML. Then, what it is called it's called JSX.
+
+
+* It is easier using JSX (JavaScript Syntax Extension or referred as JavaScript XML).
+
+* Using JSX we can implement html element/components easily in js file because a component 
+  includes html + logic content both together referred as JSX.
+
+* Earlier, we used to seperate logic and HTML content but now no issue JSX is there.
+
+
+
+Note: Since JSX is closer to JavaScript than to HTML, React DOM uses camelCase property 
+naming convention instead of HTML attribute names.
+
+
+
+
+JSX Prevents Injection Attacks:
+_______________________________
+
+* It is safe to embed user input in JSX.
+
+Example: 
+________
+
+const title = response.potentiallyMaliciousInput;
+// This is safe:
+const element = <h1>{title}</h1>;
+
+By default, ReactDOM escapes any values embedded in JSX before rendering them because everything is converted to a string
+before being rendered. This helps prevent XSS (Cross-Site-Scripting) attacks.
+
+
+
+
+JSX Represents Objects:
+_______________________
+
+const element = React.createElement(
+  'h1',
+  {className: 'greeting'},
+  'Hello, world!'
+);
+
+
+React.createElement() performs a few checks to help you write bug-free code but essentially it creates an object like this:
+
+
+// Note: this structure is simplified
+const element = {
+  type: 'h1',
+  props: {
+    className: 'greeting',
+    children: 'Hello, world!'
+  }
+};
+
+Note: These objects are called “React elements”.
+_______________________________________________________________________________________________________________________________
+
+
+Rendering Elements:
+___________________
+
+* Elements are the smallest building blocks of React apps.
+
+* An element describes what you want to see on the screen:
+
+    const element = <h1>Hello, world</h1>;
+
+* ReactDOM takes care of updating the DOM to match the React elements.
+
+* To render a React element into a root DOM node use ReactDOM.render(element, path_where_to_push_the_element).
+
+
+Example:
+________
+
+const element = <h1>Hello, world</h1>;
+ReactDOM.render(element, document.getElementById('root'));
+
+
+
+
+Updating the Rendered Element:
+______________________________
+
+* React elements are immutable. 
+
+* Once, we have created an element, we can't change it's children or attributes.
+
+* The only way to update the UI is to create a new element, and pass it to ReactDOM.render().
+
+
+
+
+React Only Updates What’s Necessary:
+____________________________________
+
+* ReactDOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the 
+  DOM to the desired state.
+_______________________________________________________________________________________________________________________________
+
+
+Components and Props:
+_____________________
+

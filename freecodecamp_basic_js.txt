@@ -1,0 +1,517 @@
+freecodecamp Basic JavaScript
+______________________________
+
+
+
+Declare JavaScript Variables:
+_________________________________
+
+Js provides 8 different datatypes:
+
+1) number
+2) string
+3) object
+4) undefined
+5) null
+6) boolean
+7) bigint
+8) symbol
+
+
+
+Note: Variable names can be made up of numbers, letters, and $ or _, but not spaces or start with a number.
+_________________________________________________________________________________________________________________________
+
+
+Declare String Variables:
+__________________________
+
+String: A string or a string literal is a series of zero or more characters enclosed in single '' or in double "" quotes.
+
+var myName = "your name";  //Here, "your name" is a string literal.
+
+_________________________________________________________________________________________________________________________
+
+Understanding Uninitialized Variables:
+_______________________________________
+
+var myName;  /*Here, we have just declared the variable name but not initialized and data to it so it contains undefined
+               datatype*/
+
+Note: 1) If we perform any mathematical operation with a undefined variable then the result will be NaN (Not a Number).
+      2) Also, if we try to concatenate a string with undefined variable then the result will be undefined.
+_________________________________________________________________________________________________________________________
+
+Understanding Case Sensitivity in Variables:
+______________________________________________
+
+In JavaScript all variables and function names are case sensitive.
+_________________________________________________________________________________________________________________________
+
+Explore Differences Between the var and let Keywords:
+______________________________________________________
+
+* In var keyword we can override(redeclare) a variable which is an issue. 
+
+* If we don't want it say there are many lines of codes then you have mistakely redeclare a same variable with two 
+  different values then it's simply say no error to it and it runs.
+
+* A keyword called let was introduced in ES6, a major update to JavaScript, to solve this potential issue with the var
+  keyword.
+
+* let keyword gives error if you redeclare the same variable again. But you can assign different value to same variable.
+  Ex: let myName = "Arnab";
+      myName = "Shekhar";    //valid
+
+________________________________________________________________________________________________________________________
+
+Declare a Read-Only Variable with the const Keyword:
+______________________________________________________
+
+* const keyword also brings some cool new features with it.
+* const also has the features what let keyword has but with added bonus that you cannot reinitialize a variable again.
+* Ex: const MY_DOG = "Jimmy";
+      MY_DOG = "Tommy";  //(invalid)
+
+Note: A common practice when naming constants is to use all uppercase letters, with words separated by an underscore.
+      Ex: const MY_NAME = "name";
+_______________________________________________________________________________________________________________________
+
+Escaping Literal Quotes in Strings:
+____________________________________
+
+* We can include backslash(\) infront of quotes to include Double quotes("") or Single quotes('').
+
+Ex: console.log("Hello \"Arnab\" and \"Shekhar\".");
+_______________________________________________________________________________________________________________________
+
+Quoting Strings with Single Quotes:
+____________________________________
+
+* When you want to write say : 'My name is "such" and "such".'   //Here, we don't need of backslash because we using '
+_______________________________________________________________________________________________________________________
+
+Concatenating string:
+______________________
+
+* const myStr = "This is the start."+" This is the end.";
+______________________________________________________________________________________________________________________
+
+Understand String Immutability:
+________________________________
+
+* In JavaScript, String values are immutable, which means that they cannot be changed once created but you reassign.
+* Ex: let myName = "name";
+      myName[0] = 's';   //not possible
+      myName = "same";   //possible
+
+_______________________________________________________________________________________________________________________
+
+Array:
+_______
+
+Note: In JS array can store different type of data such as string and number together.
+      Ex: const arr = ["Hello",12,"123"];
+
+
+Nest one Array within Another Array:
+_____________________________________
+
+* Nested array
+* This is also called a multi-dimensional array.
+
+Ex: const myArray = [["Hello",123],[12,"Hi"]];
+
+
+Modify Array Data With Indexes:
+_________________________________
+
+* String was not mutable but array values are mutable.
+
+Ex: const myArray = ["Hello",123];
+    myArray[0] = 12;
+
+    for(i in myArray)
+    {
+     console.log(myArray[i]);
+    }
+
+Array operations:
+__________________
+
+
+1) Manipulate Arrays With push():
+___________________________________
+
+* We can append data at the end of the array by using push() function.
+
+Ex: const myArray = [["cat", 1]];
+    myArray.push(["dog", 2]);
+    Output: [["cat", 1],["dog",2]]
+
+
+2) Manipulate Arrays With pop():
+__________________________________
+
+* We can use pop() to pop one element from end of array.
+
+Ex: const old = [12,6,1];
+    const new = old.pop();
+    console.log(new);
+    Output: 1
+
+
+3) Manipulate Arrays With shift():
+____________________________________
+
+* We can use shift() function to pop out the first element from array.
+
+Ex: const myArray = [["John", 23], ["dog", 3]];
+    const removedFromMyArray = myArray.shift();
+    console.log(removedFromMyArray);
+    Output: ["John", 23]
+
+
+4) Manipulate Arrays With unshift():
+_____________________________________
+
+* We can use unshift() function to push element to the first of the Array list.
+
+Ex: const myArray = [["John", 23], ["dog", 3]];
+    myArray.shift();
+    myArray.unshift(["Paul", 35]);
+    console.log(myArray);
+    Output: [["Paul", 35], ["dog", 3]]
+
+_________________________________________________________________________________________________________________________
+
+Functions:
+___________
+
+Ex: function functionName()
+    {
+     console.log("Hello World");
+    }
+
+
+Passing Values to Functions with Arguments:
+_____________________________________________
+
+function input(pra1,para2)
+{
+      let add;
+      add = para1 + para2;
+      console.log(add);
+}
+input(3,3);
+Output: 6
+
+Return a Value from a Function with Return:
+____________________________________________
+
+* We can use a return statement to send a value back out of a function.
+
+Ex: function plusThree(num) 
+    {
+      return num + 3;
+    }
+const answer = plusThree(5);
+console.log(answer);
+Output: 8
+
+
+Global Scope and Functions:
+____________________________
+
+* We should always declare your variables with let or const.
+
+
+Understanding Undefined Value returned from a Function:
+________________________________________________________
+
+* When we call the function which does not have any return statement then the return value is undefined.
+
+________________________________________________________________________________________________________________________
+
+Strict Inequality Operator:
+____________________________
+
+3 !== '3';    //true
+
+
+Logical && operator:
+_____________________
+
+* true && true //then only true both should be true.
+
+Logical || operator:
+_____________________
+
+* true || false   //true
+* true || true    //true
+* false || false  //not true
+
+* if any of one or both condition is true then it's true.
+
+_________________________________________________________________________________________________________________________
+
+Switch case:
+_____________
+
+* Case values are tested with strict equality (===). 
+
+Ex:  
+____
+
+function switchOfStuff(val) {
+  let answer = "";
+  // Only change code below this line
+ switch(val)
+ {
+   case "a": answer = "apple";
+   break;
+
+   case "b": answer = "bird";
+   break;
+
+   case "c": answer = "cat";
+   break;
+
+   default: answer = "stuff";
+  
+ }
+  // Only change code above this line
+  return answer;
+}
+
+switchOfStuff(1);
+
+Output: stuff
+
+Note: a switch statement can be easier to write than many chained if/else if statements. 
+
+
+Code snippet:
+______________
+
+if(a<0 || b<0)
+{
+  return;
+}
+
+Note: It will return undefined(keyword) data which is not defined.
+
+________________________________________________________________________________________________________________________
+
+Short note on Regexp:
+______________________
+
+* We can take help of regular expression for matching pattern.
+
+let regexp = /[JQKAP]/;    //regexp is just variable name u can use any name.  / for start and / at end
+let card = 'A';
+
+regexp.test(here goes the name of string or value to be matched).
+
+Ex: regexp.test(card);      //test() is a method to match the pattern if its find it returns true or else false.
+Output: true
+
+_________________________________________________________________________________________________________________________
+
+Build JavaScript Objects:
+__________________________
+
+* Objects are similar like array but here we access objects values through its properties(keys).
+* properties: values
+* key:values
+
+Ex: const cat = {
+  "name" : "Tom",
+   age : 13,
+  "enemies" : ["himself","herself"];
+};
+
+Note: It is not necessary to quote "" properties as it is automatically done by js.
+
+
+Accessing Object Properties with Dot Notation:
+________________________________________________
+
+* There are two ways of accessing js objects using . operator or [] like array.
+* Dot (.) notation is used when we know the property name.
+
+Ex:
+____
+
+const myObj = {
+  prop1: "val1",
+  prop2: "val2"
+};
+
+const prop1val = myObj.prop1;  //gives val1
+const prop2val = myObj.prop2;  //gives val2
+
+
+Accessing Object Properties with Bracket Notation:
+____________________________________________________
+
+* If the property name has space in it like "first last" then we use [] to access but if there are no spaces then also u 
+  can use.
+* Remember to use quotes "" when you decide that there will be space in the property name.
+
+Ex:
+____
+
+const myObj = {
+  "Space Name": "Kirk",
+  "More Space": "Spock",
+  "NoSpace": "USS Enterprise"
+};
+
+myObj["Space Name"];    //Kirk
+
+
+Accessing Object Properties with Variables:
+____________________________________________
+
+const dogs = {
+  Fido: "Mutt",
+  Hunter: "Doberman",
+  Snoopie: "Beagle"
+};
+
+const myDog = "Hunter";
+const myBreed = dogs[myDog];
+console.log(myBreed);    //Doberman
+
+Remember: Whenever accesing property which is stored in a variable use [] notation.
+
+
+Updating Object Properties:
+____________________________
+
+* We can update the properties of object using . or [] notation.
+
+Ex:
+____
+
+const ourDog = {
+  "name": "Camper",
+  "legs": 4,
+  "tails": 1,
+  "friends": ["everything!"]
+};
+
+ourDog.name = "Happy Camper";
+
+
+Add New Properties to a JavaScript Object:
+___________________________________________
+
+* We can add more properties to object using . or [] notation.
+
+ourDog.bark = "boo-boo";
+or
+ourDog["bark"] = "boo-boo";
+
+
+Delete Properties from a JavaScript Object:
+____________________________________________
+
+* We can delete properties from objects by using:
+* Ex: delete myDog.bark;
+
+
+Testing Objects for Properties:
+________________________________
+
+* If you are not sure if the property is present or not then you can check by using hasOwnProperty() method.
+* It answers in boolean values.
+
+const myObj = {
+  top: "hat",
+  bottom: "pants"
+};
+
+myObj.hasOwnProperty("top");      //true
+myObj.hasOwnProperty("middle");   //false
+________________________________________________________________________________________________________________________
+
+Iterate with JavaScript While Loops:
+_____________________________________
+
+1) while loop
+2) For loop
+3) do-while loop
+
+_______________________________________________________________________________________________________________________
+
+Replace Loops using Recursion:
+_______________________________
+
+* Function calling itself is recursion.
+
+Ex:
+
+function sum(arr, n) {
+  // Only change code below this line
+  if(n<=0)
+  {
+    return 0;
+  }
+  else
+  {
+    return sum(arr,n-1)+arr[n-1];
+  }
+  // Only change code above this line
+}
+______________________________________________________________________________________________________________________
+
+Random number:
+_______________
+
+* Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive).
+
+______________________________________________________________________________________________________________________
+
+Use the parseInt Function:
+___________________________
+
+* The parseInt() function parses a string and returns an integer.
+
+Ex: const 1 = parseInt("8");
+Output: 8
+
+Note: If the first character in the string cannot be converted into a number then it displays NaN.
+
+
+Use the parseInt Function with a Radix:
+________________________________________
+
+* We can give a second argument to the parseInt() function.
+* like: parseInt(string,radix);
+* radix: represent which number system is used either binary, hexa, octa etc.
+
+Ex: parseInt("21",2);  //binary no. system
+Output: 5    //2*2^1+1*2^0
+
+_______________________________________________________________________________________________________________________
+
+Use the Conditional (Ternary) Operator:
+________________________________________
+
+* It is similar to if-else condition.
+* Syntax: a ? b : c;   //where a is the condition, if condition is true then execute b or else execute c.
+
+________________________________________________________________________________________________________________________
+
+
+
+
+
+
+****************************
+Recursion topic not cleared
+****************************
+
+

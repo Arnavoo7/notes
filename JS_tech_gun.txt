@@ -1,0 +1,2704 @@
+Javascript
+___________
+
+
+Why JS was born?
+________________
+
+- Client side validation(interaction) on browser example form field is empty.
+- popup features
+- Event on click
+
+
+Where is JS now reached
+________________________
+
+- Client side (Js, Jquery, Reactjs, Angularjs, Vuejs,...)
+- Server side (Nodejs, expressjs)
+- Mobile development (React native)
+- Software development (electronjs)     //example: Vscode
+
+___________________________________________________________________________________________________________________________
+
+ECMA
+____
+
+- ECMA international organization creates standards for technologies.     
+  standards: rule which all will follow (such as: scripting languages)
+
+- So, ECMA international published ECMA-262 it's a standard.
+  The standard contains specification rules for a general purpose(means using globally) scripting language.
+  So, that rule which was specified under ECMA-262 is called as ECMAScript.
+  Following ECMAScript specification Javascript language was formed.
+
+
+What is ES6?
+____________
+
+- ECMAScript6 or ECMAScript 2015 because it was launched in 2015.
+
+ES versions:
+____________
+
+- ES1 in 1997
+- ES2 in 1998
+- ES3 in 1999
+- ES4          (was abandoned due to many bugs)
+- ES5 in 2009
+- ES6 in 2015 or ECMAScript 2015 (ES2015) : 6th edition   (Most popular major changes was done)
+- ES7 in 2016 or ECMAScript 2016 (ES2016) : 7th edition
+- ES8 in 2017 or ECMAScript 2017 (ES2017) : 8th edition
+- ES9 in 2018 or ECMAScript 2018 (ES2018) : 9th edition
+- ES10 in 2019 or ECMAScript 2019 (ES2019) : 10th edition
+- ES11 in 2020 or ECMAScript 2020 (ES2020) : 11th edition
+- ES12 in 2021 or ECMAScript 2021 (ES2021) : 12th edition
+- ES13 in 2022 or ECMAScript 2022 (ES2022) : 13th edition   (currently)
+
+___________________________________________________________________________________________________________________________
+
+Javascript Engine: Combination of Interpreter and just-in-time(JIT) compiler
+_____________________________________________________________________________
+
+* JIT compiler: The JIT compiler helps improve the performance of Javascript code by compiling bytecodes into 
+  native machine code at run time.
+
+
+Example of byte code generation (done at Compile time):
+________________________________________________________
+
+* When V8 engine compiles JavaScript code, the parser (Syntax analyzer 2nd step in phases of compiler) which generates an 
+  abstract syntax tree(which is the 3rd step Semantic Analyzer). A syntax tree is a tree representation of the syntactical 
+  structure of the JavaScript code. After that, the interpreter, generates bytecode from this syntax tree.
+
+
+Byte code to native(local) machine code (done at Run time):
+___________________________________________________________
+
+* The bytecode is a format that simplifies the execution of the JavaScript code by an interpreter and parallely 
+  by the Just-In-Time compilers (JITs) at run time. The bytecode is much larger than the source code, so Firefox 
+  only generates the bytecode of executed functions (firefox taken as an example).
+
+
+
+Engines:
+________
+
+Chrome: V8 engine
+Firefox: Spider Monkey
+Edge: Chakra
+
+
+Note: There can be compatibility issue regarding the updates.
+Help regarding compatibility check: https://caniuse.com/
+
+___________________________________________________________________________________________________________________________
+
+Console:
+________
+
+* We can see error if it occurs use it for debugging purpose.
+* We can use console for running js and get result output.
+
+___________________________________________________________________________________________________________________________
+
+For future purpose:
+___________________
+
+async: It parallely downloads, parses and executes js with html.
+defer: It reads html first then start downloading and executing js.
+
+Syntax:
+________
+
+<script async src = ""></script>
+<script defer src =""></script>
+
+* It depends where we want to use what like say if we are uso two script tags in html doc. then say one script I 
+  will load it later then I should declare it with defer and another is by default async or u can mention it also.
+
+Note: async is by default so if not written then also ok.
+
+
+will talk more about it later.
+__________________________________________________________________________________________________________________________
+
+Variables:
+__________
+
+* var was used earlier for declaring variables but from ES6 introducing of two keywords for creation of variables.
+
+1) let
+2) const
+
+Note: 
+var is optional. var puts a variable in local scope. If a variable is defined without var , it is in global scope
+___________________________________________________________________________________________________________________________
+
+JS Datatype:
+____________
+
+* JS allows dynamic datatype changes which is not possible in C/C++/Java.
+
+Ex: let x = 1;
+
+    x = "Hello";
+    console.log(x);		//Output: Hello   [earlier x was having type Number and then changed to String]
+
+
+Primitive datatypes:
+____________________
+
+- undefined
+- null
+- boolean
+- number
+- string
+- symbol
+
+
+Non-Primitive datatypes:
+________________________
+
+- Array
+- Date
+- RegExp
+- Object
+
+
+typeof:
+_______
+
+We can check the type of the value using typeof operator.
+
+Ex: let x = 1;  
+    console.log(typeof(x)); 		 //Output: number
+
+
+Ex:
+___
+
+let x = 2;    //It has been declared as number datatype
+
+x = "Hello";  //changed to string datatype
+
+
+One more example:
+_________________
+
+let a = 10;
+
+a = "Hello";
+
+console.log(a);       //Output: Hello
+
+
+To display variable inside string we can use tilde ` sign and ${} :
+___________________________________________________________________
+
+let name = "Avatar";
+console.log(`Hello ${name}.`);      //Output: Hello Avatar.
+
+Note: Now, in above line you may see name slashed because it has some internal meaning 
+to it specially when you declare name globally.
+
+Note: JS has feature called Automatic Semicolon Insertion(ASI) so if the user forgots to put a semicolon at the end of the statement. Then JS
+will use ASI. But, it's a good practice to use ; at the end of statements.
+
+Note: In switch case it follows strict equality opeartor i.e === .
+
+___________________________________________________________________________________________________________________________
+
+
+* Why we use "" (double quotes) or '' (Single quotes) why not use one only what was the use of it?
+
+- Say, we want to write a sentence There are many cow's. So how gonna we write that 
+
+Error:
+______
+
+console.log('There are many cow's');    //It will give an error because the statement ends at w after which s not identified
+
+Correct way:
+____________
+
+console.log("There are many cow's");    //mixing single and double quotes
+
+
+There is another way also by using backslash \: 
+_______________________________________________
+
+console.log('There are many cow\'s.');
+
+___________________________________________________________________________________________________________________________
+
+Comparison and Logical Operators:
+_________________________________
+
+double equal to == : It checks only the values
+______________________________________________
+
+* It forces (coercion) to be of same type. 
+5 == 5      //true
+6 == 5      //false
+5 == '5'    //true
+
+
+strict equal to === : It checks for datatype similarity and value also both without type (coercion):
+____________________________________________________________________________________________________
+
+5 === 5      //true
+6 === 5      //false
+5 === '5'    //false
+
+
+!=  inequality operator  (It checks for value only)
+___________________________________________________
+
+8 != 5      //true
+5 != 5      //false
+
+
+!==  strict inequality operator  (It checks for value or checks for datatype)
+_____________________________________________________________________________
+
+5 !== 5       //false
+8 !== '8'     //true
+5 !== 2       //true
+
+Note: Remember above or in heading
+
+___________________________________________________________________________________________________________________________
+
+Nullish coalescing operator (??)
+________________________________
+
+let x;
+
+console.log(x);    //It will give undefined so to avoid these we can use ??
+
+Method: console.log(x ?? "Any message");
+
+___________________________________________________________________________________________________________________________
+
+Loops in JS:
+____________
+
+break: It exits the loops whenever break is encountered.
+continue: It continues to the next condition in loop skipping the current.
+
+
+Nested loop with label:
+_______________________
+
+outer: for(let counter = 1; counter<=10; counter++)       //To exit from the outer loop we can use label
+       {
+         document.write(counter);
+         
+         for(let counter2 = 1; counter2 < 3; counter2++)
+         {
+           if(counter == 3)
+           {
+             break outer;         //using label name to tell the compiler which loop we want to exit from 
+           }
+         }
+
+         document.write("Hello");
+       }
+
+Note: can use continue also with label
+_________________________________________________________________________________________________________________________
+
+
+Functions to interact with the user:
+____________________________________
+
+1) alert(): It shows message.
+
+
+2) prompt(): shows message or input text from user. It returns true if user click "OK" and false for "CANCEL" 
+   or Escape is pressed "NULL".
+
+Ex: prompt("Enter your age", 20);     //20 is the default value in the input box any value can be given
+
+
+3) confirm(): shows a message, confirm with "OK" or "CANCEL". true is OK and false is CANCEL & Esc.
+
+___________________________________________________________________________________________________________________________
+
+Type conversions:
+_________________
+
+1) String()
+2) Number()
+3) Boolean()
+
+Note: ""  is false in boolean (empty string).
+
+___________________________________________________________________________________________________________________________
+
+Array in JS:
+____________
+
+Array declaration two types:
+____________________________
+
+1) let book = ["Math","English","Hindi","Computer"];
+
+2) let book = new Array("Math","English","Hindi","Computer");
+
+
+Note: An array list can contain heterogeneous mixture of elements.
+
+
+Empty array define:
+___________________
+
+1) let arr = [];
+2) let arr.length = 0;
+
+To check if a variable is declared as Array or not:
+___________________________________________________
+
+1) let book = ["Math","English","Hindi","Computer"];
+
+console.log(Array.isArray(book));
+Output: true
+
+2) let book = "Math";
+
+console.log(Array.isArray(book));
+Output: false
+
+
+Check for more array operations: 
+________________________________
+
+youtube.com/watch?v=bkgY_zLEPKQ&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=17
+
+
+Multidimensional array:
+_______________________
+
+* Nested array
+
+Ex:
+___
+
+let bookWithPages = [
+  [ "Math", ["300", "500" ]],
+  ["Physics", "500"],
+  ["Bio", ["800"]]
+];
+
+Accessing value:
+________________
+
+Suppose we want to access Maths 300 page:
+
+bookWithPages[0][1][0]
+
+
+iterating using forEach() Array method:
+_______________________________________
+
+book.forEach(x);
+
+function x(value)
+{
+  console.log(value);
+}
+
+
+Note: We can use basic for loop also but we can use forEach loop if we don't want to find length of the array.
+___________________________________________________________________________________________________________________________
+
+
+Functions:
+__________
+
+If we call functions with different arguments such as:
+
+Not necessary to give parameters:
+_________________________________
+
+function x()
+{
+  console.log(arguments)
+}
+
+x(1,2);
+x(2,3,4);
+x(8,9,10);
+
+Then above function is valid without the parameter and get stored in array of arguments.
+
+[Arguments] { '0': 1, '1': 2 }
+[Arguments] { '0': 2, '1': 3, '2': 4 }
+[Arguments] { '0': 8, '1': 9, '2': 10 } 
+
+
+Storing function in a variable:
+_______________________________
+
+function xyz()
+{
+
+}
+
+let store = xyz;       //Remember don't give paranthesis here
+
+store();      //then call using the variable
+
+
+
+Note: When returning in function if we don't use return and try to store in a variable then the variable will be undefined.
+
+___________________________________________________________________________________________________________________________
+
+Global vs Local variable:
+_________________________
+
+let a = 10;       //Global variable
+
+function add()
+{
+  let result = 20;        //Local variable
+  console.log(result);
+}
+
+
+
+function sub()
+{
+  let result = 30;          //Local variable
+  console.log(result);
+}
+
+add();          //After calling add(). Output is 20 and then variable is destroyed.
+sub();          //Then we call sub(). Output is 30 so we can declare same name for variable in a function 
+                  depending upon their destruction.
+
+
+
+Some differences between Global and Local variables:
+____________________________________________________
+
+1) If a variable is declared globally then we can use that variable anywhere in the program like inside function
+   also have no scope limit. But, in Local variable it has scope limit according to the declaration ex: if you 
+   have declared local variable in a function then it is limited to the function scope only.
+
+2) We cannot declare same variable name in Global but can declare same variable name in Local as the limit scope
+   is destroyed after the usage.
+
+
+Q) Are Local variable gets automatically deleted after function gets terminated or used?
+
+Yes they will be deleted. Every time you call a function you put a "stack frame" on top of the stack where all the 
+local variables live in, and when the function is done, the stack frame will be "teared down".The stack is also 
+usually limited in size. If you keep tacking too many frames onto the stack - for example when a recursive function 
+goes rogue and keeps calling itself - then a "stack overflow" occurs and your program blows up.
+
+___________________________________________________________________________________________________________________________
+
+Anonymous functions:
+____________________
+
+See, we write normal function like this:
+
+function abc()            //with function name
+{
+
+}
+
+abc();                    //calling
+
+
+Now, we can also write a Anonymous function like this:
+
+let show = function()     //declared Anonymously
+{
+
+};
+
+show();                   //calling using variable name
+
+
+So, now you will think when we will use anonymous function does it has any special use?
+_______________________________________________________________________________________
+
+1) Yes, it has we can use anonymous function when we want to execute the function one time only without letting the function 
+   saved in the memory(avoiding memory space for storage).
+
+2) And also we can use, when we want to pass the function one time only as a parameter.
+
+Ex:
+___
+
+* setTimeout is a function which execute the code at specified timeout.
+
+Syntax: setTimeout(parameter,time)      //time in ms where 1s = 1000ms
+
+Code:
+_____
+
+setTimeout(function(){
+  console.log("Hello");
+}, 3000);
+
+
+Reference for help:
+___________________
+
+1) MDN
+2) https://dotnettutorials.net/lesson/javascript-anonymous-function/
+
+___________________________________________________________________________________________________________________________
+
+Immediately Invoked Function Expression (IIFE):
+_______________________________________________
+
+Syntax:
+_______
+
+(function() {
+    statements
+})();
+
+
+* IIFE are function expressions that are invoked as soon as the function is declared.
+* Firstly, the anonymous function is put inside the () to avoid the pollution of global scope (functions and variables)
+* Secondly, it creates the IIFE using () which the JavaScript engine will directly interpret the function.
+
+Note:
+_____
+
+If we have some code that we don't want to use again, we could use the IIFE pattern. As we will not reuse the code again,
+using IIFE in this case is better than using a function declaration (normal func.) or a 
+function expression(storing func. in a variable).
+
+Reference for help: https://dotnettutorials.net/lesson/javascript-immediately-invoked-function-expressions/
+
+will look into this topic later.
+
+
+Important rememember:
+_____________________
+
+* Avoid using Global variable when not necessary as it will pollute the code why because when we use 3rd party libraries 
+  and if there's global variable clashed with our code then how can we improve or avoid this happening by using anonymous 
+  function also declared with IIFE as per requirement.
+
+_______________________________________________________________________________________________________________________
+
+Objects in JS:
+______________
+
+* Object can be anything like in terms of real world objects are humans, buildings, cars etc.
+* Also, objects has its "Properties" and "Function".
+
+
+How to create object:
+_____________________
+
+Empty object:
+_____________
+
+let person = {};
+
+
+Now, with properties:
+_____________________
+
+let person = {
+  "firstName": "Avatar",
+  "lastName": "Aang"
+};
+
+Now, accessing the object properties using 2 ways:
+__________________________________________________
+
+1) Dot notation . :
+___________________
+
+console.log(person.lastName);
+
+
+2) Array notation using []:
+___________________________
+
+console.log(person["firstName"]);
+
+
+Modifying objects properties and adding to properties also:
+___________________________________________________________
+
+person.firstName = "Jeet";
+
+Now adding,
+
+person.age = 25;
+
+
+Deleting the properties from the object:
+________________________________________
+
+delete person.lastName;
+
+
+If you want to know if a properties is present in the object or not:
+____________________________________________________________________
+
+console.log("Height" in person);
+Output: false         //boolean only
+
+
+
+iterating over object properties using in operator:
+___________________________________________________
+
+for(let key in person){           key will hold key only not the value
+  console.log(key);
+}
+
+To access the value use []
+
+console.log(person[key]);       //because key is actually works like index
+
+___________________________________________________________________________________________________________________________
+
+Object methods:
+_______________
+
+4 ways of creating method:
+__________________________
+
+1) person.abc = function(){
+  console.log("Hello");
+}
+
+person.abc();
+
+
+2) function abc(){
+  console.log("Hello");
+}
+
+person.x = abc;
+
+person.x();
+
+
+3) Defining method in the object only
+
+let person = {
+  "firstName": "Avatar",
+  "lastName": "Aang",
+  "abc": function(){
+    console.log("Hello");
+  }
+};
+
+person.abc();
+
+
+4) updates of ES6 he 4th way:
+
+let person = {
+  "firstName": "Avatar",
+  "lastName": "Aang",
+  "abc"(){                        //directly running without function keyword
+    console.log("Hello");
+  }
+};
+
+person.abc();
+Output: Hello
+___________________________________________________________________________________________________________________________
+
+
+this keyword in Js:
+___________________
+
+let person = {
+  "firstName": "Avatar",
+  "lastName": "Aang",
+  "abc"(){                   
+    console.log(`I am ${this.lastName} and i follow ${car.brand}`);       
+  }
+};
+
+let car = {
+  "brand": "Tata",
+  "model": "Jaguar"
+}
+
+
+*In above, we use this keyword which tells that  we are using the current object only so we don't have to name the object 
+ everytime.
+
+person.abc();         //Calling objects method
+Output: I am Aang and i follow Tata
+
+___________________________________________________________________________________________________________________________
+
+Math object methods in Js:
+__________________________
+
+Ex:
+___
+
+1) Math.PI  =>  gives pi value
+
+2) Math.E   => gives Euler's no.
+
+3) let x = Math.round(4.7);
+   console.log(x);
+   Output: 5
+
+4) let x = Math.ceil(4.3);        //ceil: Upper
+   console.log(x);
+   Output: 5
+
+5) let x = Math.floor(4.3);       //floor: Lower
+   console.log(x);
+   Output: 4
+
+6) let x = Math.trunc(4.7);       //Remove decimal point
+   console.log(x);
+   Output: 4
+
+7) let x = Math.pow(4,2);         //4^2 = 16
+   console.log(x);
+   Output: 16
+
+8) let x = Math.sqrt(100);        //sqrt(100) = 10
+   console.log(x);
+   Output: 10
+
+9) let x = Math.min(4,12,3,1);   //gives minimum value
+   console.log(x);
+   Output: 1
+
+10) let x = Math.max(2,15,6,1);  //gives maximum value
+    console.log(x);
+    Output: 15
+
+___________________________________________________________________________________________________________________________
+
+Generate random no. in Js:
+__________________________
+
+let x = Math.random();      //It generates no. between 0 and 1.
+
+console.log(x);
+
+
+
+
+Now, what if we want integer values from 0 to 99 then the method is:
+
+let x = Math.floor(Math.random() * 100);        //nos. from 0 to 99 
+
+and, say if we want to avoid 0 and start from 1 to 8 then:
+
+
+let x = Math.floor(Math.random() * 8) + 1;
+console.log(x);
+
+
+
+
+Now if upper and lower limit is given say 15 to 25 then:
+
+Math.floor(Math.random() * (25 - 15)) + 15;
+
+Formula is:
+
+Math.floor(Math.random() * (max - min)) + min;      //generates nos. from 15 to 24
+
+But, if you want to include 25 also means 15 to 25 then:
+
+Math.floor(Math.random() * (max - min + 1)) + min; 
+
+
+
+*Try using ceil instead of floor and see the results.
+_________________________________________________________________________________________________________________________
+
+
+Date object in Js:
+__________________
+
+let x = new Date();             //stores date in x object it stores current date
+
+let x = new Date(2017,11);       //passing arguments (year,month,day,time)  remember  2 arguments are necessary
+
+Note: 0 is January and 11 is December
+      0 is Sunday and 6 is Saturday
+
+
+Follow for more:
+________________
+
+1) https://www.youtube.com/watch?v=EgJWaLmvHbo&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=31
+
+2) https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date     
+
+___________________________________________________________________________________________________________________________
+
+new keyword in Js:
+__________________
+
+* We can create object using new keyword also.
+
+var person = new Object();
+
+person.name = "Avatar";
+person.age = 25;
+
+console.log(person.age);
+Output: 25
+
+___________________________________________________________________________________________________________________________
+
+Getters and Setters in Js:
+__________________________
+
+* To avoid manipulating the original data we can take help of getter and setter methods.
+
+Getters: To get the data
+________________________
+
+let person = {
+  "name": "Aang",
+  "age": 25,
+  
+  "getname": function(){          //method1
+    return this.name();
+  }
+
+  get getname(){                  //method2 (making function work as a property)
+    return this.name();
+  }
+};
+
+
+console.log(person.getname());      //method1
+console.log(person.getname);        //method2
+
+
+
+Setters: To set the data
+________________________
+
+let person = {
+  "name": "Aang",       
+  "age": 25,
+  
+  set setname(){                  
+      this.name();
+  }
+};
+
+person.setname = "Avatar";
+
+So, above name "Aang" gets replaced by "Avatar".
+___________________________________________________________________________________________________________________________
+
+
+Object constructor function in Js:
+__________________________________
+
+So, we used to make object by using:
+
+let student1 = {
+  "firstName": "abc",
+  "age": 24
+}
+
+let student2 = {
+  "firstName": "xyz",
+  "age": 25
+}
+
+Above, we have created 2 objects right for two students what if we want to create object for 10 students which has same 
+field name(key) but different values. This, can be done by using Object constructore function:
+
+
+Object constructor function:
+____________________________
+
+function Student(first, age){
+  this.firstname = first;
+  this.age = age;
+}
+
+let student1 = new Student("Aang",25);        //value passed
+let student2 = new Student("Avatar",21); 
+let student3 = new Student("katara",26); 
+
+
+*Easy way right!
+
+Now, say if we want to add property then by using:
+
+student1.nationality = "Airbender";
+
+Note: adding property will not add it in constructor Student but to the student1 object.
+
+
+For more help: https://www.youtube.com/watch?v=R6tbu5_f4NY&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=34
+___________________________________________________________________________________________________________________________
+
+
+JavaScript Prototypes:
+______________________
+
+* Prototype is super object from which other objects can inherit properties and methods.        //will be looked later
+
+* Here, we can see how we can insert property and methods in Constructor. So, that it will get reflected in every object we
+  create.
+
+* When this will be helpful when we forget to add a property or method but decided to insert it now.
+
+
+Syntax:
+_______
+
+Student.prototype.twoNationality = "Earth";
+
+
+*Topic not cleared fully
+___________________________________________________________________________________________________________________________
+
+
+Nested Object in Js:
+____________________
+
+* object inside object.
+
+let artist = {
+  "id": 123,
+  "song name":  "The man who sold the world",
+  "instruments": {
+    "guitar": "yes",
+    "guitar_used":{
+      "many": "yes"
+    }
+  }
+}
+
+Now, accessing:
+
+console.log(artist.instrument.guitar_used.many);
+Output: yes
+
+Note: helpful when learning and implementing API
+
+___________________________________________________________________________________________________________________________
+
+
+Hoisting in Js:
+_______________
+
+* To lift the declaration part in the current scope only.
+
+Ex:
+___
+
+Say, we define a function:
+
+function hello(){
+  console.log("Hello");
+}
+
+hello();
+//this above call will give output Hello.
+
+
+But, say we put calling function at top like this:
+
+hello();
+
+function hello(){
+  console.log("Hello");
+}
+
+//Then, what happens Js automatically to do the hoisting(lift up) the fuction declared part once when the source code 
+  is runned.
+
+//Same can be done with variable also 
+
+*Note: Remember, hoisting(lift up) only the declaration part
+
+
+Some points to be noted:
+________________________
+
+1) Like declared variable  using var without initialization will provide undefined.
+
+2) But, regarding let and const it will give error.
+
+
+using strict mode:
+__________________
+
+x = 4;                  //not keyword use to declare variable default is var 
+
+console.log(x);
+Output: 4               //right 
+
+But it can lead to bug forming so to avoid this:
+
+at top of page write:
+
+"use strict"
+
+x = 4;
+console.log(x);
+Output: error: x is not defined.
+
+___________________________________________________________________________________________________________________________
+
+
+Document Object Model (DOM):
+____________________________
+
+* DOM is an application programming interface (API).
+* It is used for manipulating HTML and XML documents such as ADD, REMOVE, MODIFY parts of html document.
+
+* So, when a web page is loaded in the browser, the browser creates a DOM of the page. It's basically a hierarchical 
+  structure of the html document called also as (DOM tree).
+
+* In DOM tree the document is the root node or object.  (please Google it to see image for better view)
+
+
+So, what all powers does Js gets by using DOM to create a dynamic HTML:
+_______________________________________________________________________
+
+- Js can change all the HTML elements in the page.
+- Js can change all the HTML attributes in the page.
+- Js can change all the CSS styles in the page.
+- Js can remove existing HTMl elements and attributes.
+- Js can add new HTML elements and attributes.
+- Js can react to all existing HTML events in the page.
+- Js can create new HTML events in the page.
+
+
+Points to be noted:
+___________________
+
+1) In the DOM, all HTML elements are defined as objects. So, if defined as objects then it will contain property and 
+   methods right.
+
+2) The document object represents your web page it's the root.
+
+3) If we want to access any element in an HTML page, we always start with accessing the document object (from root).
+
+___________________________________________________________________________________________________________________________
+
+
+How to select an element by id in Js:
+_____________________________________
+
+* id is unique for every element.
+
+
+Snippet of html code:
+_____________________
+
+<body>
+  <ul>
+    <li>list 1</li>
+    <li id = "second">list 2</li>
+  </ul>
+</body>
+
+
+Now, in js:
+___________
+
+let elm = document.getElementById("first");
+console.log(elm);
+Output: <li id = "second">list 2</li>
+
+
+So, what if we want to check if a id is present or not:
+_______________________________________________________
+
+let elm = document.getElementById("last");
+console.log(elm);
+Output: null        //no such id present
+
+
+So, we see that using getElementById() method we are getting the whole element.
+
+
+Now, if we want to (get) the content the inner part of that element then use innerHTML property:
+________________________________________________________________________________________________
+
+console.log(elm.innerHTML);        //referring to first id above
+Output: list 2
+
+
+Now, if we want to (set) the content the inner part of that element then use innerHTML property:
+________________________________________________________________________________________________
+
+elm.innerHTML = "hello";
+
+or
+
+elm.innerHTML = "<p> hello </p>";
+________________________________________________________________________________________________________________________
+
+
+How to select element by class in Js:
+_____________________________________
+
+Snippet of html code:
+_____________________
+
+<body>
+  <ul>
+    <li class="sec">list 1</li>
+    <li class = "sec">list 2</li>
+  </ul>
+</body>
+
+
+
+Now, in js:
+___________
+
+let elm = document.getElementByClassName("sec");
+console.log(elm);
+Output: <li class = "sec">list 1</li>
+        <li class = "sec">list 2</li>
+
+
+* The above output code has two elements right it comes under HTML collection (array) so we can't use innerHTML to access 
+  the content as it will get confuse which one to access or manipulate.
+
+
+So, how to solve this issue by using loop:
+__________________________________________
+
+for(let i=0; i<elm.length; i++)
+{
+  elm.innerHTML = "<p> hello </p>";
+}
+
+* So, the above loop will run 2 times as elm.length property will select only sec declared ClassName. And, hence the value
+  get replaced by hello including <p> tag.
+
+
+Note: we can include multiple class name also so matching multiple ClassName will be fetched. 
+Ex: <li class="sec d">list 1</li>
+
+___________________________________________________________________________________________________________________________
+
+
+How to select an element by Tag in Js:
+______________________________________
+
+Snippet of html code:
+_____________________
+
+<h2>Hello</h2>
+
+let elm = document.getElementByTagName("h2");
+
+elm.innerHTML = "Hello";
+___________________________________________________________________________________________________________________________
+
+
+Query Selector in JavaScript:
+_____________________________
+
+querySelector: It selects the first matching query
+__________________________________________________
+
+Snippet of html code:
+_____________________
+
+<p class = "intro"> para1 </p>
+<p class = "intro"> para2 </p>
+
+Now, in Js:
+___________
+
+let elm = document.querySelector("p.intro");
+elm.innerHTML = "hello";
+console.log(elm);           
+Output: hello only for the para1.
+
+But, if you want changes to all then use querySelectorAll:
+__________________________________________________________
+
+let elm = document.querySelectorAll("p.intro");
+elm.innerHTML = "hello";    //will not work for all use loop
+
+for(let i=0; i<elm.length; i++)
+{
+  elm.innerHTML = "hello";
+}
+
+console.log(elm);           //will show collection    
+Output: hello for both para1 and para2.
+
+___________________________________________________________________________________________________________________________
+
+
+Traversing elements in JavaScript:
+__________________________________
+
+* Going from child element to parent or vice versa or to siblings.
+
+
+1) First, we will see how to traverse from child to parent:
+___________________________________________________________
+
+
+Snippet of html code:
+_____________________
+
+<ul>
+  <li id = "intro"> Hi 1 </li>
+  <li> Hi 2 </li>
+  <li> Hi 3 </li>
+  <li> Hi 4 </li>
+  <li> Hi 5 </li>
+</ul>
+
+Now, in Js:
+___________
+
+- Selecting ul parent element from it's child element.
+
+let elm = document.getElementById("intro");
+let prt = elm.parentElement;
+prt.innerHTML = "hello";
+console.log(prt);
+Output: It will show only hello inside ul parent tag
+
+
+
+2) Second, we will see how to traverse from parent to child:
+____________________________________________________________
+
+
+Snippet of html code:
+_____________________
+
+<ul id = "intro">
+  <li> Hi 1 </li>
+  <li> Hi 2 </li>
+  <li> Hi 3 </li>
+  <li> Hi 4 </li>
+  <li> Hi 5 </li>
+</ul>
+
+
+Now, in Js:
+___________
+
+let elm = document.getElementById("intro");       //parent is selected
+let first = elm.firstElementChild;            //This will select only first child.
+let last = elm.lastElementChild;              //This will select only last child.
+let all = elm.children;                       //This will select all child of ul parent tag.
+
+
+
+
+3) Third, we will see how to traverse from sibling to sibling:
+______________________________________________________________
+
+
+Snippet of html code:
+_____________________
+
+<ul>
+  <li> Hi 1 </li>
+  <li id = "intro"> Hi 2 </li>
+  <li> Hi 3 </li>
+  <li> Hi 4 </li>
+  <li> Hi 5 </li>
+</ul>
+
+
+Now, in Js:
+___________
+
+let elm = document.getElementById("intro");           //will select the 2nd list
+
+
+Now, traversing:
+________________
+
+let firstNode = elm.previousElementsibling;           //this selects the previous sibling
+let firstNode = elm.nextElementsibling;               //this selects the next sibling
+
+___________________________________________________________________________________________________________________________
+
+
+Create and Append Element in JavaScript:
+________________________________________
+
+* We use to replace write when changing the content using innerHTML.
+
+
+So, now we will append (add) to the present content:
+____________________________________________________
+
+
+Snippet of Html code:
+_____________________
+
+<div id = "intro">
+  <p>Avatar</p>
+</div>
+
+
+Now, in Js:
+___________
+
+let elm = document.getElementById("intro");
+
+let h1 = document.createElement("h1");            //this creates h1 tag
+
+elm.appendChild(h1);                              //it appends h1 tag
+
+
+Now, to add content to the tag:
+
+let text = document.createTextNode("This is h1 tag");
+h1.appendChild(text);
+
+
+Now, you must be thinking how to add class, id then you can do it by:
+_____________________________________________________________________
+
+h1.className = "try";       //adds class to h1 element
+h1.id = "intro";            //adds id to h1 element
+
+
+Note: We can append element in body also.
+
+
+There is a second way also to append and read using the property:
+_________________________________________________________________
+
+h1.textContent = "content added";             //adds the content to h1 element
+
+
+
+We can also read the data in the element:
+
+
+Snippet of Html code:
+_____________________
+
+<div>
+  <p id ="intro">Avatar</p>
+</div>
+
+
+let dread = document.getElementById("intro");
+console.log(dread.textContent);           
+Output: Avatar
+
+
+
+Task to add a list to ul element:
+_________________________________
+
+
+Snippet of Html code:
+_____________________
+
+<ul id = "intro">
+  <li> Hi 1 </li>
+  <li> Hi 2 </li>
+  <li> Hi 3 </li>
+  <li> Hi 4 </li>
+  <li> Hi 5 </li>
+</ul>
+
+
+Now, in Js:
+___________
+
+let prt = document.getElementById("intro");       //parent selected
+
+let new = document.createElement("li");           //creates element li
+
+new.textContent = "Hi 6";                         //adds Hi 6 content to newly created element li
+
+prt.appendChild(new);                             //adds element to ul 
+
+
+Now, it will be:
+
+<ul id = "intro">
+  <li> Hi 1 </li>
+  <li> Hi 2 </li>
+  <li> Hi 3 </li>
+  <li> Hi 4 </li>
+  <li> Hi 5 </li>
+  <li> Hi 6 </li>
+</ul>
+
+___________________________________________________________________________________________________________________________
+
+
+Insert Before an Element in JavaScript:
+_______________________________________
+
+Now, previously using append we use to add newly created element.
+
+But, now how we can add in between or at first so let's see that:
+
+
+Snippet of Html code:
+_____________________
+
+<ul id = "intro">
+  <li> Hi 1 </li>
+  <li> Hi 2 </li>
+  <li> Hi 3 </li>
+  <li> Hi 4 </li>
+  <li> Hi 5 </li>
+</ul>
+
+
+Now, in Js:
+___________
+
+let list1 = document.getElementById("intro");             //parent selected
+
+let item = document.createElement("li");
+item.textContent = "Hi 0";
+
+let pos = list1.firstElementChild;              //Hi 1 li elemenet selected
+
+list1.insertBefore(item, pos);                  //(the newly created element, position at which insert)
+
+
+Now, we can insert to next sibling also:
+________________________________________
+
+let pos = list1.firstElementChild.nextElementsibling.nextElementsibling        //it will select the position 3rd i.e, Hi 3
+
+
+
+Now, say if we want to add element inside <body> before <ul>:
+_____________________________________________________________
+
+
+Snippet of Html code:
+_____________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+
+Now, in Js:
+___________
+
+let parent = document.body;                 //it selects the body element parent
+
+let new = document.createElement("h2");     //it creates a new element h2
+new.textContent = "Hello";                  //adds Hello as a content to h2 element
+
+let uorder = document.getElementById("intro");  //selects the ul element for position
+
+parent.insertBefore(new,uorder);              //(element new, position)
+
+___________________________________________________________________________________________________________________________
+
+
+Remove Child Element in Js:
+___________________________
+
+Snippet of Html code:
+_____________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+
+Now, in Js:
+___________
+
+let parent = document.getElementById("intro");        //parent selected
+let elm = parent.firstElementChild;                   //got the first element of ul
+
+parent.removeChild(elm);                              //it removes the first list from parent ul
+
+
+Now, to remove the list using nextElementsibling:
+_________________________________________________
+
+let elm = parent.firstElementChild.nextElementsibling;        //selects the list 2
+
+parent.removeChild(elm);                    //removes list 2
+
+
+Now, deleting the whole ul element from <body>:
+_______________________________________________
+
+Snippet of Html code:
+_____________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+
+Now, in Js:
+___________
+
+let parent = document.body;
+
+let elm = document.getElementById("intro");
+
+parent.removeChild(elm);                  //removed ul
+
+
+Now the code would looke like:
+______________________________
+
+<body>
+</body>
+___________________________________________________________________________________________________________________________
+
+
+Clone or Copy Element in JavaScript:
+____________________________________
+
+Snippet of Html code:
+_____________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+
+Now, in Js:
+___________
+
+let parent = document.getElementById("intro");            //selects the ul element
+
+let cloneElm = parent.cloneNode(true);    //when you write true inside bracket then it selects the parent + child node also
+                                          // But, if you write (false) then it only selects the parent element
+
+
+Now,appending the cloneelm to body element:
+___________________________________________
+
+document.body.appendChild(cloneElm);
+
+
+Now code will be:
+_________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+
+Now, look above code the id is repeating right so correct it:
+_____________________________________________________________
+
+* remember we store the down code of ul to cloneElm variable.
+
+cloneElm.id = "intro2";
+
+
+Now code will be:
+_________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+  <ul id = "intro2">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+___________________________________________________________________________________________________________________________
+
+
+Replace Element in JavaScript:
+______________________________
+
+Snippet of Html code:
+_____________________
+
+<body>
+  <ul id = "intro">
+    <li> Hi 1 </li>
+    <li> Hi 2 </li>
+    <li> Hi 3 </li>
+    <li> Hi 4 </li>
+    <li> Hi 5 </li>
+  </ul>
+</body>
+
+
+Now, in Js:
+___________
+
+let parent = document.getElementById("intro");
+
+
+Creating new element and assigning some content to it:
+______________________________________________________
+
+let new = document.createElement("li");
+new.textContent = "Hi 22";
+
+Now, let's replace 2nd list Hi 2 one:
+_____________________________________
+
+let replace = parent.firstElementChild.nextElementsibling;        //it selects the 2nd list
+
+parent.replaceChild(new,replace);               //(new element, replaceable element)
+
+___________________________________________________________________________________________________________________________
+
+
+Insert Adjacent HTML in Js:
+___________________________
+
+* Its powerful firstly because it creates normal text to html element with content.
+
+
+Snippet of html code:
+_____________________
+
+<!-- beforebegin -->
+<div id = "intro">
+  <!-- afterbegin -->
+  <h2>Heading</h2>
+  <p>This is a p tag</p>
+  <!-- beforeend -->
+</div>
+<!-- afterend -->
+
+
+Now, in Js:
+___________
+
+let parent = document.getElementById("intro");        //selects div
+
+
+Now, creating a new element here the power comes see:
+_____________________________________________________
+
+let newElement = <h1> Hello </h1>;                                 
+
+
+parent.insertAdjacentHTML("beforebegin", newElement);             //it will parse normal text to html code
+
+* At above code (position, newElement)
+
+And the positions are:
+
+1) beforebegin
+2) afterbegin
+3) beforeend
+4) afterend
+
+So, use above and try accordingly.
+__________________________________________________________________________________________________________________________
+
+
+Change Attribute in Js:
+_______________________
+
+
+Snippet of html code:
+_____________________
+
+<button id = "btn"> Send </button>
+
+
+Now, in Js:
+___________
+
+let btn = document.getElementById("btn");       //The button element is selected
+
+btn.setAttribute("name", "form1");              //(contains_the attribute_name, value_of_attribute)
+
+Now, one more attribute gets added to it:  <button id = "btn" name = "form1"> Send </button>
+
+
+To get the attribute value:
+___________________________
+
+let val = btn.getAttribute("name");
+console.log(val);
+Output: form1
+
+
+
+To remove attribute:
+____________________
+
+btn.removeAttribute("name");
+
+So, now the code will be after removing name attribute:  <button id = "btn"> Send </button>
+
+
+
+To know if attribute is present or not:
+_______________________________________
+
+
+<button id = "btn" name = "form1"> Send </button>
+
+
+let ans = btn.hasAttribute("name");
+console.log(ans);
+Output: true
+___________________________________________________________________________________________________________________________
+
+
+Change Inline Style in Js:
+__________________________
+
+
+First way:
+__________
+
+
+<button id = "btn" name = "form1"> Send </button>
+
+
+let btn = document.getElementById("btn");
+
+btn.style.cssText = "background-color: red; color: white;";
+
+
+Second way:
+___________
+
+btn.setAttribute("style", "background-color: red; color: white);
+
+
+Third way for targeting one css property:
+_________________________________________
+
+btn.style.background = "red";
+btn.style.color = "white";
+
+
+For keeping multiple property:
+______________________________
+
+btn.style.cssText += "background:red; border: 1px solid green;";
+
+In, above code btn.style.cssText has previously some style properties it will concatenate with other.
+__________________________________________________________________________________________________________________________
+
+
+Get Computed CSS in JavaScript:
+_______________________________
+
+
+watch: https://www.youtube.com/watch?v=WdJVWDP9a54&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=53
+
+___________________________________________________________________________________________________________________________
+
+
+DOM Events in Js:
+_________________
+
+* DOM events are actions that occur as a result of the user action or as result of state change of th elements of a
+  DOM tree.
+
+
+Example of HTML events:
+_______________________
+
+- When a user clicks the mouse.
+- When a web page has loaded.
+- When an image has been loaded.
+- When the mouse moves over an element.
+- When an input field is changed.
+- When an HTML for is submitted.
+- When a user strokes a key.
+
+
+Inline event:
+_____________
+
+<button id="btn" onclick="btnClick()"> Click </button>
+
+
+<script>
+  function btnClick(){
+    alert("Button has been clicked!");
+  }
+</script>
+
+
+
+Event listener:
+_______________
+
+let btn = document.getElementById("btn");
+
+btn.addEventListener("click", btnCLick); //We can include anonymous function also directly without mentioning it seperately.
+
+
+* Useful when say we hover mouse to a image it gets zoomed so it is achievable use event listener.
+
+* Helpful resource for more events: https://www.w3schools.com/jsref/dom_obj_event.asp
+___________________________________________________________________________________________________________________________
+
+
+Remove Event Listener in Js:
+____________________________
+
+btn.removeEventListener("click", function_name);          //It will remove the event
+___________________________________________________________________________________________________________________________
+
+
+Page Load Events:
+_________________
+
+
+DOMContentLoaded event:
+_______________________
+
+* The browser fully loads the HTML and completes building the DOM tree. However, it hasn't loaded external resources 
+  like stylesheets and images. In, this page event we can start selecting DOM nodes or initialize the interface.
+  So, we can use DOMContentLoaded event before loading external resources.
+
+
+load event:
+___________
+
+* The browser fully loads the HTML and also the external resources like images and stylesheets. So, we can use load event
+  after loading all resources.
+
+
+
+So the process goes like this:
+______________________________
+
+<img src = "some_link">
+
+
+Now, in Js:
+___________
+
+window.addEventListener("DOMContentLoaded", function(){
+  console.log("DOM tree created");                        //First it will showed in console
+});
+
+
+window.addEventListener("load", function(){
+  console.log("Fully loaded");               //After the external resources loaded like img content then shows Fully loaded
+});                                                        
+
+
+
+If you want to target a specific image and then start a event like this:
+________________________________________________________________________
+
+<img id = "images" src = "some_link">
+
+let i = document.getElementById("images");
+
+
+i.addEventListener("load", function(){
+  console.log("Fully loaded");               //After that particular image gets loaded trigger the event
+});
+___________________________________________________________________________________________________________________________
+
+
+Mouse Events in Js:
+___________________
+
+
+Resource: https://www.w3schools.com/jsref/obj_mouseevent.asp
+___________________________________________________________________________________________________________________________
+
+
+Key Down Event in JavaScript:
+_____________________________
+
+windows.addEventListener("keydown", checkKey);        //It gets the pressed key suppose we press f
+
+function checkKey(event)          //the name can be anything I just named it event u can name it x. Here, it gets the f
+{
+  console.log(event);             //Then show f in console
+}
+
+
+*Note: keydown is when we pressed the key and we can keep keyup also it is when we press and release our finger (up).
+___________________________________________________________________________________________________________________________
+
+
+Scroll Event in Js:
+___________________
+
+window.addEventListener("scroll", function(){
+  console.log("scrolling");                         //it provides the no. of times you are scrolling up and down both
+});
+
+
+
+For detecting scroll wheel up and down:
+_______________________________________
+
+* y = Vertical position
+* x = Horizontal position
+
+
+window.addEventListener("wheel", function(event){
+  if(event.deltaY < 0){                                  
+    console.log("scrolling up");            
+  }
+  else if(event.deltaX > 0){
+    console.log("scrolling down");
+  }
+});
+
+
+When we scroll cross say 150px pop up something:
+________________________________________________
+
+window.addEventListener("scroll", function(){
+    if(windows.pageYOffset > 150){                            //pageYOffset tells how much pixel has been scrolled
+      document.body.style.background = "red";
+    }
+})
+___________________________________________________________________________________________________________________________
+
+
+Events on Form in Js:
+_____________________
+
+
+Code snippet of html code:
+__________________________
+
+<form action = "">
+  <input type = "text" id = "myInput">
+</form>
+
+
+Now, in Js:
+___________
+
+let x = document.getElementById("myInput");
+
+x.addEventListener("focus", myFocusFunc);                         //focus when we click on the field
+x.addEventListener("blur", myBlurFunc);                           //blur when we move out from the input box
+
+
+function myFocusFunc()
+{
+  x.style.background = "yellow";
+}
+
+function myBlurFunc()
+{
+  x.style.background = "white";
+}
+
+
+
+Change event in input field:
+____________________________
+
+x.addEventListener("change", function(){           //changes in the input field it shows in console after click outside
+  console.log(this.value);                         //this keyword points to the current object/element 
+});
+
+
+
+input event in input field:
+____________________________
+
+x.addEventListener("input", function(){           //Anything we write or change inside input field it detects 
+  console.log(this.value);                        //this keyword points to the current object/element 
+});
+___________________________________________________________________________________________________________________________
+
+
+Event Bubbling & Event Capturing in Js:
+_______________________________________
+
+1) Event Bubbling:
+__________________
+
+* In the event bubbling model, an event start at the most specific element which has to be triggered first and then move
+  on to the least specific element document or even the window.
+
+Ex:
+___
+
+- When we click a button say then the order of execution of the event is like this:
+
+* button    (most-specific)
+* div with id container
+* body
+* html
+* document    (least-specific)
+
+* Think above as nested subset.
+
+
+
+2) Event capturing:
+___________________
+
+* It is just the reverse of bubbling event, an event starts from the least specific element that is document or window
+  and move towards most-specific element for example button.
+
+
+Ex:
+___
+
+- When we click a button say then the order of execution of the event is like this:
+
+* document (most-specific)
+* html
+* body
+* div with id container
+* button    (least-specific)
+
+
+Now see working through a example:
+__________________________________
+
+
+Snippet of html code:
+_____________________
+
+<body>
+    <div id = "d">
+        <button id = "b">
+            Click me
+        </button>
+    </div>
+</body>
+
+
+
+let b = document.getElementById("b");
+let d = document.getElementById("d");
+
+
+Syntax for below addEventListener:
+__________________________________
+
+object.addEventListener(event, function, true or false but false is by default);
+
+true = trigger Capturing event
+false = trigger Bubbling event
+
+
+b.addEventListener("click", btnClicked);                //Remember, we haven't use true here so its Bubbling event 
+d.addEventListener("click", divClicked);
+document.body.addEventListener("click", bodyClicked);
+
+
+Now the functions which are called above is defined below:
+__________________________________________________________
+
+function btnClicked(){
+  console.log("button clicked!");
+}
+
+function divClicked(){
+  console.log("div clicked!");
+}
+
+function bodyClicked(){
+  console.log("body clicked!");
+}
+
+
+If you want to stop a specific event on triggering just add stopPropagation() method like example:
+__________________________________________________________________________________________________
+
+function divClicked(event){                //Using event object for using its method 
+  console.log("div clicked!");
+  event.stopPropagation();                 //Prevents further propagation of an event during event flow
+}
+
+
+
+Resource: 
+_________
+
+1) https://www.youtube.com/watch?v=cHUpfQGgskw&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=63
+
+2) https://www.w3schools.com/jsref/obj_event.asp
+
+___________________________________________________________________________________________________________________________
+
+
+Prevent Default in Js:
+______________________
+
+* It helps to change the default behavious in DOM.
+
+
+Snippet of html code:
+_____________________
+
+< a href = "https://www.google.com"  id = "an"> Click me </a>
+
+
+Now in Js:
+__________
+
+let anch = document.getElementById("an");
+
+anch.addEventListener("click", function(e){
+  console.log("link clicked");                //just printing to console
+  e.preventDefault();                         //it changes the behaviour by not going to google 
+});
+
+
+*We can apply this technique in forms also.
+___________________________________________________________________________________________________________________________
+
+
+Browser Object Model (BOM):
+___________________________
+
+* The Browser Object Model (BOM) is used to interact with the browser. 
+* So, BOM contains a window object which is the main object because it represents the window of the browser.
+* An object of window is automatically created by the browser when we open it.
+* window object is default object of the browser.
+
+
+Note:
+_____
+
+* All Global Js objects, functions, and variables declared using var keyword automatically become members of the 
+  window object.
+
+* Global variables are properties of the windows object.
+
+* Global functions are methods of the windows object.
+
+
+
+Examples of both variable and method are shown below:
+_____________________________________________________
+
+variable created using var only:
+________________________________
+
+var a = 10;
+
+console.log(window.a);                  //its similar to not writing windows there as its by default
+Output: 10
+
+
+method:
+_______
+
+function xyz(){
+  console.log("Hi");
+}
+
+window.xyz();         //or xyz(); will also work why because window is the default object of browser
+___________________________________________________________________________________________________________________________
+
+
+Window Object in Js:
+____________________
+
+Resource: https://www.youtube.com/watch?v=PtfbgGNZ4B0&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=66
+
+___________________________________________________________________________________________________________________________
+
+
+Time out and Time Interval in Js:
+_________________________________
+
+setTimeout(myFunction, 5000);                 //5000 is in ms so 5 secs
+
+myFunction(){
+  alert("Join our new course on Js");
+}
+
+
+setTimeout returns an id so you can store it in a variable for further usage:
+_____________________________________________________________________________
+
+let timeOutId = setTimeout(myFunction, 5000);
+
+
+if(not login)
+{
+  clearTimeOut(timeOutId);
+}
+
+
+
+Set interval:
+_____________
+
+setInterval(func, 2000);              //repeating the function block after every 2 secs
+
+
+function func(){
+  console.log("Please subscribe");
+}
+
+
+We can clear also this using: clearInterval(the id);
+___________________________________________________________________________________________________________________________
+
+
+Location object in Js:
+______________________
+
+* It comes under window object.
+* It is required when we want to get current url related information.
+* It is also useful when we want to redirect the url to any other url.
+
+
+console.log(location.href);
+console.log(location.pathname);
+console.log(location.protocol);
+
+
+For redirecting see resource: 
+_____________________________
+
+https://www.youtube.com/watch?v=ATjTaThf2Ac&list=PLjpp5kBQLNTSvHo6Rp4Ky0X8x_MabmKye&index=68
+___________________________________________________________________________________________________________________________
+
+
+Navigator object in Js:
+_______________________
+
+* To detect which browser opens the website just like to see analytics of website.
+* To get browser information and their functionalities like can the browser run flash, js.
+* It also comes under window object.
+
+
+Example:
+________
+
+To know the browser properties:
+_______________________________
+
+1) console.log(navigator.appName);
+2) console.log(navigator.appVersion);
+3) console.log(navigator.appCodeName);
+4) console.log(navigator.cookieEnabled);
+5) console.log(navigator.userAgent);
+6) console.log(navigator.platform);
+
+
+To know the browser methods:
+____________________________
+
+1) console.log(navigator.javaEnabled());
+
+  and various...
+___________________________________________________________________________________________________________________________
+
+
+Screen object in Js:
+____________________
+
+* It is used for Analytics.
+* It gives information about the current screen.
+
+
+Example:
+________
+
+1) console.log(screen.width);
+2) console.log(screen.height);
+3) console.log(screen.colorDepth);
+4) console.log(screen.orientation);       //orientation: landscape or portrait of device screen
+
+___________________________________________________________________________________________________________________________
+
+
+
+ES6:
+____
+
+* It is a standard specified earlier I have specified above refer it.
+
+
+
+Let and Const in ES6:
+_____________________
+
+Some differences:
+_________________
+
+let:
+____
+
+* var has global scope which means window object property. But, if we use let keyword it will not come under
+  window object.
+
+* redeclaration is valid in var but not valid in let.
+
+
+const:
+______
+
+* If we require a constant which should not be changed then use keyword const.
+
+
+
+
+Default Parameters in ES6:
+__________________________
+
+* So say, we declare a function and it contains a parameter but when calling that function we didn't passed any parameter
+  to it or forgot to pass any parameter to it. Then we can take help of default parameter given.
+
+
+Examples:
+_________
+
+
+function abc(msg)                   //received argument
+{
+  console.log(msg);                 //it will print Hello
+}
+
+abc("Hello");
+
+
+
+
+function abc(msg)                   //no argument received
+{
+  console.log(msg);                 //it will print undefined
+}
+
+abc();
+
+
+
+
+
+function abc(msg = "Hi")            //default parameter given
+{
+  console.log(msg);                 //it will print Hi
+}
+
+abc();
+
+
+
+
+
+function abc(msg = "Hi",xyz = "Hello")      //works for multiple parameters also       
+{
+  console.log(msg,xyz);                     //it will print Hi Hello
+}
+
+abc();
+___________________________________________________________________________________________________________________________
+
+
+Rest parameters in ES6:
+_______________________
+
+* Earlier in function we have to define number of parameters to get that many arguments but now using Rest paramters 
+  concept we can have as many arguments without declaring parameters.
+
+* Just including ... and a name which will work as an array in parameter.
+
+
+Example:
+________
+
+function xyz(...args)
+{
+  console.log(args);              //it will print 2,5,6,7 in a array
+}
+
+xyz(2,5,6,7);
+___________________________________________________________________________________________________________________________
+
+
+Spread Operator in ES6:
+_______________________
+
+* It is also defined by ...  3 dots.
+* This is used to spread/copy/add array.
+
+
+Example:
+________
+
+let arr1 = [1,2,3];
+
+let arr2 = [4,5,6,...arr1];           //can change the position of ...arr1
+
+console.log(arr2);
+Output: [4,5,6,1,2,3]
+___________________________________________________________________________________________________________________________
+
+
+for of loop in ES6:
+___________________
+
+* It is used to iterate without knowing length of the array or string.
+* We can use for-of loop to iterate array elements.
+
+
+Example:
+________
+
+let score = [3,6,4];
+
+for( let x of score){         //x taken as variable which will get value from array iteratively from 0th index
+  console.log(x);             //it will print 3 6 4 line by line iterating
+
+}
+
+
+
+let score = "hello world";
+
+for( let x of score){         
+  console.log(x);             //it will print hello world line by line
+  
+}
+___________________________________________________________________________________________________________________________
+
+
+
+for in loop in ES6:
+___________________
+
+* We can use for-in loop to iterate object keys.
+
+
+let arr = {
+"firstname": "Avatar",
+"lastname": "Aang"
+};
+
+for(let key in arr)
+{
+  console.log(key+":"+arr[key]);		//firstname: Avatar lastname: Aang
+}
+____________________________________________________________________________________________________________________________
+
+
+
+Template Literals in ES6:
+_________________________
+
+* It is the use of `` (back-tick) symbol.
+* Using it we can write on multiple lines and it will show as it is.
+* Also, we can use to easy the process of not using concatenation operator and just use `${}`.
+
+Example:
+________
+
+let str = `hello
+
+world`;
+
+console.log(str);
+
+
+Another example:
+________________
+
+let x = Avatar;
+
+console.log(`My name is ${x}.`);
+Output: My name is Avatar.
+___________________________________________________________________________________________________________________________
+
+
+Array Destructuring in ES6:
+___________________________
+
+* ES6 has provided us some easy methods for accessing array.
+
+
+For example we use to do earlier like this:
+___________________________________________
+
+let book = ["Advance JS", ,200, 150];
+
+used to access the value by:
+
+let name = book[0];
+let pages = book[1];
+let price = book[2];
+
+console.log(name);    
+Output: Advance JS
+
+
+But ES6 has given a suitable method to do above:
+________________________________________________
+
+let[name, pages, price] = book;             //Array destructuring done here
+console.log(name);
+Output: Advance JS
+
+
+Also, we can provide a default value to the variable if the value is not present in the array:
+______________________________________________________________________________________________
+
+For example,
+
+let[name, pages=800,publication,price ];     //then the default value of pages will be shown rather than showing undefined
+
+
+
+Also, we can use this concept in function like:
+_______________________________________________
+
+For example,
+
+function abc(){
+  return ["Avatar", 24];
+}
+
+
+let[name, age] = abc();               //it stores in the variable according to the index
+
+console.log(age);
+Output: 24
+___________________________________________________________________________________________________________________________
+
+
+Object Destructuring in ES6:
+____________________________
+
+
+object defined:
+_______________
+
+let book = {
+  "name": "JS",
+  "pages": 180,
+  "price": 200
+};
+
+
+let store = book.name;
+console.log(store);
+Output: JS
+
+
+* This is how we used to do it right so let's make it easy using Object destructuring
+
+
+let{name, page, price} = book;              //put same name as the key name
+console.log(name);
+Output: JS
+
+
+* But say if you want to name it different:
+
+let{name : title, page, price} = book;      //title is also name
+console.log(title);
+Output: JS
+
+
+* Note: default value and nested object is same concept like array.
+___________________________________________________________________________________________________________________________
+
+
+Modules in ES6:
+_______________
+
+* It requires http.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+****************
+53, 54, 55 later
+****************
+
+*****
+
+*****

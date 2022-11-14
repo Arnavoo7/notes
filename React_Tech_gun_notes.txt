@@ -1,0 +1,710 @@
+React:
+______
+
+* React is a library of Js.
+* It was developed by a facebook developer.
+* React is lightweight.
+* Using react we can made single page application.
+* Reactjs runs on node.
+
+
+Earlier we used to use Multi Page Application (Normal website):
+_______________________________________________________________
+
+* Like say, we are in Home page and we request server for contact page so it fetches contact page and then browser renders
+  the new page ( firstly it takes time and also the whole page get loaded).
+
+
+Nowadays, we can use Single Page Application (SPA) a react concept:
+___________________________________________________________________
+
+* It sees the difference that how much difference is there between the homepage.
+* It only replaces the content which is required not the whole page.
+* It is fast and efficient.
+
+__________________________________________________________________________________________________________________________
+
+
+ES6 concepts for React:
+_______________________
+
+
+1) Arrow function:
+__________________
+
+* Earlier we used to implement function like this:
+__________________________________________________
+
+function abc(name){
+  console.log(name);              //Output: Avatar
+}
+
+abc("Avatar");
+
+
+* But now from ES6, the syntax is changed:
+__________________________________________
+
+let sayName = name => {         //paranthesis is not mandatory when only 1 parameter is mentioned
+  console.log(name);              //Output: Avatar
+}
+
+sayName("Avatar");
+
+
+Note: Above, there was only 1 argument passes to the parameter. But say if you have no argument or more than 1 argument then:
+
+* It's compulsory to mention () like:
+
+
+let sayName = (name,age) => {         
+  console.log(name,age);             
+}
+
+sayName("Avatar",25);
+
+
+OR, when there are no parameters
+
+let sayName = () => {         
+  console.log();             
+}
+
+sayName();
+
+
+One more concept, is if the block of the func. has only one line then you can apply shortcut like this:
+_______________________________________________________________________________________________________
+
+Example 1:
+__________
+
+
+let sayName = name => name;            //return is not required but it works internally (shortcut)
+
+console.log(sayName("Avatar"));        //Output: Avatar
+
+
+Example 2:
+__________
+
+let calc = (num1, num2) => (num1*num2);
+
+console.log(calc(2,3))                    
+Output: 6
+__________________________________________________________________________________________________________________________
+
+
+Import and Export (Modules):
+____________________________
+
+* Whenever, we are using modules use ( type = "module" ) in the html doc like:
+
+Example:
+________
+
+<script type = "module" src = "app.js"></script>
+
+
+Explaining through Js files:
+____________________________
+
+account.js
+__________
+
+export let calc = (num1, num2) => (num1*num2);
+
+export let x = 10;
+
+
+demo.js
+_______
+
+import * as item from "./account.js";        //or we can do import { calc, x} from "./account.js";
+
+console.log(item.calc(2,3));
+console.log(item.x);
+
+
+Now, in default export case:
+____________________________
+
+* Use a default export when your module only needs to export one variable/function.
+
+Ex:
+___
+
+
+account.js
+__________
+
+let calc = (num1, num2) => (num1*num2);
+
+let x = 10;
+
+export default x;
+
+
+demo.js
+_______
+
+import  abc from "./account.js";            //abc gets the exported data
+
+console.log(abc);
+__________________________________________________________________________________________________________________________
+
+
+OOPs concept:
+_____________
+
+
+1) Classes and objects:
+_______________________
+
+* Class is just like a blueprint of the object.
+
+
+Synatx:
+_______
+
+class Customer                //Customer is the class name
+{
+  //property
+  constructor(n)               // Constructor automatically gets called when the object is created
+  {
+    this.name = n;              //always use this keyword for accessing inside the class
+  }
+
+  //method
+  buy()
+  {
+    console.log(this.name)
+  }
+
+}
+
+
+let customer1 = new Customer("Avatar");           //object created name is customer1
+
+customer1.buy();        //Output: Avatar
+
+
+
+
+
+Inheritance:
+____________
+
+class Customer                
+{
+  //property
+  constructor(n)              
+  {
+    this.name = n;           
+  }
+
+  //method
+  buy()
+  {
+    console.log(this.name)
+  }
+
+}
+
+class childCustomer extends Customer            //extends keyword is used to inherit poperties/methods from parent Customer
+{
+  hello()
+  {
+    console.log("Hello");
+  }
+}
+
+
+
+
+
+ES7 bring some new features:
+____________________________
+
+* Earlier we used to declare the properties inside constructor and also used this keyword but now we don't have to from ES7
+  it has been easy by directly mentioning the property without constructor & without this keyword.
+
+* Also, we can use arrow function/method to define inside the class.
+
+
+Example:
+________
+
+class Customer                
+{
+  //property
+  name = "Avatar";
+  age = 28;              //From ES7 we can directly write the property without using this keyword outside the constructor
+
+
+  //method
+  buy = () => {
+      console.log(this.age);        //this points to the current object 
+  }
+}
+
+
+let cust = new Customer();
+
+console.log(cust.age);
+console.log(cust.name);
+cust.buy();
+__________________________________________________________________________________________________________________________
+
+
+Spread & Rest Operator:
+_______________________
+
+* Symbol used ... 
+
+
+1) Spread operator:
+___________________
+
+
+Explaining through example Spread operator:
+___________________________________________
+
+* It is used to copy one array properties to another array.
+
+
+let list = ["Audi", "Honda", "BMW"];
+
+let newList = [...list, "Ferrari"];         //spread operator used to append(add) new properties
+
+
+Same like before we did with array now can be done with object also:
+____________________________________________________________________
+
+* It is used to copy one object properties to another object.
+
+
+let person = {
+  name: "Avatar";
+}
+
+let newPerson = {
+  ...person,
+  city: "Air"
+}
+
+
+
+
+1) Rest operator:
+_________________
+
+* It is used when we don't know how many arguments we have to send so the parameters are also not decided so we can do
+  one thing here by mentioning array using ...and_then_any_x_name. 
+
+
+Example:
+________
+
+function hello(...all)
+{
+  console.log(all);
+}
+
+hello(1,2,3);
+__________________________________________________________________________________________________________________________
+
+
+Array Destructuring:
+____________________
+
+1) Storing array values in a variable not accessing the array values by index value.
+
+
+Example:
+________
+
+let list = ["Audi", "BMW", "Honda"];
+
+console.log(list[0]);         //Earlier we used to do like this
+
+
+So, now we can improvised it by using:
+
+let[ car1, car2, car3 ] = list;
+console.log(car2);
+Output: BMW
+
+
+
+Object Destructuring:
+_____________________
+
+* Storing object key to variable and directly accesing the object properties using the variable.
+
+Example:
+________
+
+const person = {
+  name: "Avatar",
+  age = 25
+};
+
+
+let{ name, age } = person;
+console.log(name);            //directly using not doing object.property
+__________________________________________________________________________________________________________________________
+
+
+Reference type & primitive type:
+________________________________
+
+1) Primitive types:
+___________________
+
+* number
+* string
+
+
+Example:
+________
+
+let num1 = 100;
+
+let num2 = num1;      //num1 value gets copied to num2
+
+console.log(num1);    //Output: 100
+console.log(num2);    //Output: 100
+
+
+
+2) Reference types:
+___________________
+
+* Array
+* Object
+
+
+Example:
+________
+
+let person1 = {
+  name: "Avatar",
+  age = 25
+}
+
+let person2 = person1;      //here, person1 is not copied to person2. person2 is pointing to person1 object.
+
+person2.name = "Aang";      //it changes name for person1 to Aang.
+
+
+Note: Now, you amybe thinking then how to copy person1 object to person2 remember spread operator :)
+__________________________________________________________________________________________________________________________
+
+
+
+Array functions:
+________________
+
+
+Map function:
+_____________
+
+* It creates a array from array and add new functionalities to it.
+
+
+Example:
+________
+
+let array1 = [2,5,6,7];
+
+let array2 = array1.map(function(x){
+  return x*2;
+});
+
+
+Now, above function in map can be wriiten using arrow function and just see the magic:
+
+let array2 = array1.map(x => x*2);
+
+console.log(array2);
+Output: [4,10,12,14];
+
+
+
+Filter function:
+________________
+
+* It filters the array to get the desired result.
+
+
+Example:
+________
+
+let array1 = [2,5,7,10];
+
+let array2 = array1.filter(x => x%2 == 0 );   //it will return only those values which are divisible by 2 (true values)
+
+console.log(array2);
+Output: [2,10]
+__________________________________________________________________________________________________________________________
+
+
+Components in React:
+____________________
+
+* React is majorly about playing with componenets only.
+
+* Components are like the html element tag or many html tag elements combined like example button element or navbar 
+  which comprises of more elements in it.
+
+* So, components are reusable building block in user interface (html and css with js make a component). just the content
+  changes and the building block remains the same.
+
+* So, we will make components to only those which are getting repeated.
+
+Note: There can be nested component also like components inside a component.
+
+
+
+Benefits of using components:
+_____________________________
+
+1) Reusability: Once the button or any component designed can be reusable.
+2) Help in maintaining code: It improves readability and maintining code easilt because it is in sectionwise components 
+   like button.
+
+
+Summary: 
+________
+
+* So, in React we build component with HTML, CSS and Js.
+* And then, by combining these components we build a webpage.
+__________________________________________________________________________________________________________________________
+
+
+React Installation:
+___________________
+
+* Install nodejs which gives a runtime environment to run Javascript on server or our local computer.
+
+
+npm:
+____
+
+* npm is a package manager for Js packages.
+* So, we get packages from npm server to our computer to use.
+
+
+npm and npx:
+____________
+
+Npm is a tool that use to install packages. Npx is a tool that use to execute packages. Packages used by npm are 
+installed globally you have to care about pollution for the long term. Packages used by npx are not installed 
+globally so you have to carefree for the pollution for the long term.
+
+
+
+Creating development environment for React:
+___________________________________________
+
+Then we, will create react app which provides a developement environment so that we can use latest Js features to 
+build new Single-Page-Applications(SAP) in React. 
+
+* To create the development environment use: npx create-react-app your_project_name
+
+* Then, folder will be created with required packages.
+
+* Then, do npm start to start the developement server you will see default react webpage by facebook which is preinstalled.
+__________________________________________________________________________________________________________________________
+
+
+React File Structure (Short description):
+_________________________________________
+
+* .gitignore: It is a file where we write those code which is not be pushed to git repository.
+
+* README.md: We can write project description or tutorials here which is also helpful in gtihub for explaining.
+
+* package.json: It contains metadata of the project like it includes dependencies.
+
+* package-lock.json similar to package.json which helps to work with node.
+
+* node_modules: It contains many folders which is helpful to build your project.
+
+* public: It contains images, index.html
+
+* src(source): We will work with it regularly. Here, there will components folder which will 
+  include all the components we will build so that components folder behave like a parent 
+  component and under it many components are present.
+
+Note: The no. of components will increase as we go deep in our website. For each component there
+must be individual file.
+__________________________________________________________________________________________________________________________
+
+
+Remember: JSX (Js XML) allows us to write HTML in React.
+
+Create Component in React:
+__________________________
+
+* Step1: So, first check all the required files are there or not like: index.js in src folder.
+
+* Step2: Then, in index.js import ReactDom object from "react-dom" which is inside node_modules
+  folder and also import React from "react".
+  
+* Step3: Then, to connect index.css import it also to index.html
+
+* Step4: Now, create a new App.js file used for creating (components). And, this components will be sent to index.js and then 
+  to index.html and then it will load in the browser.
+_______________________________________________________________________________________________________________________________
+
+
+First Project in React:
+_______________________
+
+* Why we use className and not id because when we are creating components then we need to use
+  components again and again .
+_______________________________________________________________________________________________________________________________
+
+
+Passing data via “props” in React:
+__________________________________
+
+* To use javascript code inside JSX. We can use {}.
+
+Example:
+________
+
+let xyz = "Hello"
+
+and, then we can insert this xyz variable inside JSX like this say for example: <h1> { xyz} </h1>.
+
+
+Props:
+______
+
+* Passing of data to a component is Props. Like, for example passing of data from App.js to another component ExpensItem.
+* We can pass variables by using {} to the component (like a attribute).
+
+
+Note: Props are an ordinary object of React that follow the immutable properties. This simply means that you cannot change 
+their value throughout the component. Props and states are in the form of an object, which contains the number of key-value 
+pairs that could be used to render the value of the objects.
+
+
+Example: 
+________
+
+let expenseDate = new Date(2021, 3, 28);
+
+<ExpenseItem date={expenseDate} />      //It will send the attribute to ExpenseItem function at ExpenseItem.js and there at 
+function parameter use any name say like used props which is an object and it create key: value pair like "date":expenseDate
+use it by props.datekk
+_______________________________________________________________________________________________________________________________
+
+
+Nested component:
+_________________
+
+<component1>
+  <component2>
+  </component2>
+</component1>
+
+* Use props.children to maintain the code in component2
+_______________________________________________________________________________________________________________________________
+
+
+State:
+______
+
+* To handle/control the event using State.
+
+
+Example: using button element
+
+
+<button onClick={ function name }>Change something</button>         //on clicking some event happens
+
+Arrow function:
+_______________
+
+const clickHandler = () => {        
+  alert("Clicked");             //This will be changed downside
+}
+
+
+<button onClick={ clickHandler }>Change something</button>         //on clicking a button clickHandler function gets called
+
+
+* We will use useState(a hook) import it from react library.  (useState is function)
+* So, earlier we used to store it in a variable now using useState we will perform.
+* We can empty (no value) or a string from useSate("") or useSate("Hello") or useSate(props.title) 
+  above props.title is where props is the object and title as it's attribute.
+
+
+Button element:
+_______________
+
+<button onClick={ clickHandler }>Change something</button> 
+
+
+* useSate(props.title) here useState is the function and it returns value in array[variable, function], array containing variable
+  and a function.
+
+  So, now the array we recieve we will apply Array destructuring on it:
+
+const[title, setTitle] = useState(props.title);   //So, now r.h.s of assignment operator we will get array and store it l.h.s
+     [variable_stored_in_title, function_name_user_defined_it] 
+     //using that function only we will change the state on button click event.
+
+
+
+Now, it changes:
+
+const clickHandler = () => {        
+  setTitle("New title");       //passing the new value on button click event and changing the title name dynamically          
+}
+
+
+Summary: we don't need to use now document.getElementById etc. which we were using in JS DOM.
+_________________________________________________________________________________________________________________________________
+
+
+Handle Input in React:
+______________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*****
+
+****

@@ -1,0 +1,776 @@
+JAVASCRIPT
+_________________
+
+* Javascript a client side programming language for web.
+* Javascript adds functionality to the website.
+* Earlier javascript can only be executed in browser but now it can be executed
+  on any device by the help of Javascript engine so it can also be execute on server side (nodejs)
+* Example: Chrome uses JS Engine (V8), Firefox uses (SpiderMonkey) and IE uses (Chakra).
+
+* AJAX stands for Asynchronous JavaScript And XML sends request over the network to remote server, download and
+  upload files without refreshing the page.
+* Many operations can be performed using js.
+
+* Node.js is an open source, cross platform ,backend gives a javascript runtime environment that executes js code
+  outside a web browser.
+
+* Js frameworks are such as React, Angular , Vue.
+* Js for mobile React native.
+_______________________________________________________________________________________________________________________
+
+HISTORY
+_________________
+
+* Brandan Eich developed JS.
+* Mocha, Livescript, then name came JAVASCRIPT.
+
+JS vs JAVA
+
+* There is nothing common.
+* It was marketing tactic to divert attention from Java which was most popular at that time.
+
+ECMAscript
+_________________
+
+* ECMAScript is a Standard for scripting languages such as JavaScript, JScript, etc.
+  It is a trademark scripting language specification.
+_______________________________________________________________________________________________________________________
+
+Linking
+_________________
+Internal use in html : <script>.....</script>
+External linking js to html : <script src=path></script>
+
+Some functions:
+__________________
+
+1) console.log() : To print at console in browser.
+2) alert() : To display alert box with message in browser.
+3) document.write() : To display text in webpage body.
+______________________________________________________________________________________________________________________
+
+Variables:
+___________________
+
+* Variables are containers which holds data values (a named storage in memory).
+* variable main property is that it can be updated.
+
+Creating variable:
+____________________
+
+1) let : visibility of this let keyword will be inside the scope and it can be updated only in that scope only.
+   Ex: let me="Hello";
+2) const : The container will be locked (memory location locked cannot be updated as const keyword is used).
+   Ex: const me="Hello";
+3) var : Same as let but its scope is global. Var supports redeclaration of variable but let not.
+   Ex: var me="Hello";
+       var me="Hi";
+
+Note : Variable name cannot start with digit and it can only contain Alphabets,digits,symbols $ and _ only.
+       Keywords cannot be used as variable name.
+       Javascript is case-sensitive.
+_______________________________________________________________________________________________________________________
+
+Message Box:
+____________________
+
+1) alert() : To show a alert box with message to user.
+2) prompt() : To take input from user.
+3) confirm() : Ask question to user and on clicking ok (true) and cancel (false). For boolean values 
+
+______________________________________________________________________________________________________________________
+
+Datatypes:
+___________________
+
+* JS is loosely Dynamic type programming language. The interpreter automatically assign internally the type of data.
+* We can use typeof(datatype) to know the type of the data.
+
+primitive datatypes: stored in stack in memory
+__________________________________________________
+
+1) number : int, float
+2) string : 'Peter' and "Peter" both quotes valid, also accepts char
+3) boolean : true, false
+4) null : type is object
+5) undefined : value not given initialized
+
+Reference datatypes: stored in heap in memory
+___________________________________________________
+
+1) array
+2) object
+3) date
+etc.
+______________________________________________________________________________________________________________________
+
+Important Questions:
+______________________
+
+1) Difference between == and === operator?
+Sol. == only checks for value is equal or not. But, === checks for value + the type of data is equal or not.
+     Ex: var a = 2, b = '2' here a == b is (true) as value is same but a === b is (false) because b contains ch which 
+     is in string datatype.
+
+2) What is NaN property in JS?
+Sol. Nan means (Not a number) it indicates value which is not a legal number. Check using Nan()
+
+3) Reference comparison
+Sol. Explaining through a example:
+     a = [2]  address say 101
+     b = [2]  address say 102
+     Now, is a == b no its (false) as it's comparing the addresses not the values.
+     
+     Note: a is a referenced datatype which is pointing to heap memory location at 101 address where object is stored. Same
+     with b but there addresses are different. But, if say we do c = a so c is also now pointing to the object where a is 
+     pointing. Hence, now doing a == c will give (true).
+
+4) Explain scope and scope chain in JS
+Sol. Scope helps to identify where the variable or function can be used and where not.
+     
+     Different types of scopes:
+     _____________________________
+     
+     1) Global scope: It has maximum accessibility can be accessed easily.
+     2) Local or function scope: It can be used only inside local function.
+     3) Block scope: It can be used only inside block only like say inside if block only.
+______________________________________________________________________________________________________________________
+
+String:
+_____________
+
+* String object is used to represent and manipulate a sequence of characters.
+* String is array of chars.
+
+Creating a string:
+____________________
+
+1) Using literal: let message = "Hello"; (where Hello is a literal)
+2) Using String() constructor: let message = new String("Hello");
+
+Valid string declaration:
+____________________________
+
+1) let name1 = "Dhoni";
+2) let name2 = 'Sachin';
+3) let name3 = `Kohli`; ( ` is backtick symbol)
+   Also multiline string is acceptable in backtick like let name4 = `My name
+                                                                      is such and
+                                                                      such`;
+
+String interpolation:
+___________________________
+
+console.log("Sum of" + a + "and" + b + "is" + sum);
+So, to avoid confusion to make it more readable we can use string interpolation by
+console.log(`Sum of ${a} and ${b} is ${sum}.`);
+______________________________________________________________________________________________________________________
+
+Important String functions:
+___________________________
+
+let s = "I'm new to JS";
+let s1 = "and also Java";
+So,
+String property:
+____________________
+
+1) let len = s.length
+   console.log(len); 
+
+String functions:
+_____________________
+
+1) concat() : To merge strings.
+   let message = s.concat(s1);
+   console.log(message)
+   Output: I'm new to Js and also Java
+   Note: we can give multiple values to concat function like adding space by s.concat(" ",s1)
+
+
+2) charAt(x) : To know the char at x position.
+   let ch = s.charAt(2);
+   console.log(ch);
+   Output: m
+
+
+3) indexOf(char) : To know the index value of character
+   let index = s.indexOf('w');
+   console.log(index);
+   Output: 6
+   Note: it gives first occurrence preference direction from left to right.
+
+
+4) lastIndexOf(char)
+   let index = s.lastIndexOf('o');
+   console.log(index);
+   Output: 3
+   Note: it starts from last occurrence preference direction from right to left.
+
+ 
+5) toUpperCase() : To make all chars capital
+6) toLowerCase() : To make all chars small
+
+
+7) substring() : To fetch a part of the main string.
+   let sub = s.substring(2,6);  //(start,stop)
+   console.log(sub);
+   Output: m new 
+   Note: stop/end is not included
+
+
+8) startsWith() : To check the it starts with string given or not.
+   console.log(s.startsWIth("i'm new"));
+   Output: false
+   Note: its case sensitive
+
+
+9) startsWith() : To check the it ends with string given or not.
+   console.log(s.endsWIth("JS"));
+   Output: true
+   Note: its case sensitive
+
+
+10) split() : To split string
+    let sp = s.split(" ");  //breaks string from space
+    console.log(typeof sp);
+    Output: object
+    console.log(sp);
+    Output: ["I'm", "new", "to", "JS"] (it basically an object type is array)
+    So, if it's array then we can fetch that string by the index value
+    console.log(sp[0]);
+    Output: I'm
+
+
+11) trim() : It trims the whitespaces from both start and end
+    let data = "    Hello to you ";
+    let message = data.trim()
+    console.log(message);
+    Output: Hello to you
+
+
+12) replace(): It replaces the string with given string.
+    let data = "Hello atom";
+    let message = data.replace("atom","molecule");
+    console.log(message);
+    Output: Hello molecule
+
+
+13) includes(): It search for the string is present or not and return in boolean value.
+    let data = "Hello js how r u?"
+    let message = data.includes("js");
+    console.log(message);
+    Output: true
+
+__________________________________________________________________________________
+
+Five important string operations:
+___________________________________
+
+1) How to check equality of two string.
+Sol. Using == and === . Where == checks for value equal but === checks for value and the type also. But, remember when
+     string is created using literal then the value is considered but if the string is created using object creation then
+     the address are checked for equality.
+
+2) How to compare two strings in terms of chota(-1), bada(1) and equal(0)
+Sol. let s1 = 'A';
+     let s2 = 'B';
+     Using localCompare,
+     let result = s1.localCompare(s2);
+     console.log(result);
+     Output: -1 (because ASCII value of A is 65 less than B ASCII value)
+     Same you can try other also.
+     Note: it compares by using ASCII value so if you need help regarding knowing ASCII value then use say 
+     console.log(s2.charCodeAt(0));   //it gives B ASCII value
+
+3) How to replace certain word with another word
+Sol. let old = "I hate JS";
+     let new = old.replace("hate","love");  //replaces hate word with love. (the word to replace, the word to insert)
+     Note: It changes the first occurence of the string if the word is repeating more than one time.
+           Also, remember it's case sensitive if you want you can use Regex cocnept for insensitivity.
+           ANd, also it doesn't make changes to the old string.
+
+4) Converting string to array
+Sol. Using split() function, we can convert string to array.
+     let message = "I am learning JS";
+     result = message.split(" ");
+     console.log(result);
+     Output: ["I", "am", "learning", "JS"]
+     if we do result = message.split("");  //not adding space
+     console.log(result);
+     Output: ["I", " ", "a", "m", " ", "l", "e", and son on....]
+
+____________________________________________________________________________________________________________________________
+
+Type conversion or Typecasting:
+___________________________________
+
+1) String conversion: Changing number type to string type
+   Ex: let a = 12;
+       let b = String(a); //external typecasting
+       console.log(typeof b);  //Output: string
+
+2) Numeric conversion: String type to number type
+   Ex: let value = "1234";
+       console.log(value + 5);
+       Output: 12345  //just concatenate doesn't add as value is of string type
+       Now, console.log(Number(value) + 5);  //1239  because value typecasted to number
+
+Note: we can also use parseInt(), parseFloat() to convert
+
+Note: If we convert below to number type then:
+      1) undefined -> NaN(Not a Number)
+      2) null -> 0
+      3) true -> 1
+      4) false -> 0
+
+3) Boolean conversion: 
+   let a = "false";
+   console.log(typeof a)  //string type
+   let b = Boolean(a);
+   console.log(b)  //true  (because any char will print 0 but if say no char is there then it's false)
+   console.log(typeof b)  //boolean type
+
+   Note: -30 (negative number) is true.
+____________________________________________________________________________________________________________________________
+
+Array:
+___________
+
+1) JS is not type fixed means we can include multiple types in one array.
+   Ex: let a = [1, "Hello", 492];  //(valid)
+   
+2) Size is also not fixed. (means dynamically allocation is possible)
+   Ex: let a = [1, 2 , 3, "Hi"];
+       a.push("you");  //push function pushes to last
+       console.log(a);
+       Output: [1, 2, 3, "Hi", "you"]
+
+       Note: 
+       let b = [1, 2, 3, [2, 3, 4]];
+       console.log(b[3][1]);
+       Output: 3
+____________________________________________________________________________________________________________________________
+
+Array operations:
+_____________________
+
+1) let names = ["shekhar", "subhomoy", "arnab"];
+   console.log(names.length);
+   Output: 3  //3 elements are present size of array
+
+2) console.log(names[1]);
+   Output: subhomoy  //accessing through index value
+   Note: index value start from 0
+
+3) We can use push and pop function to insert and delete element from array list.
+
+4) to push element at first end then use unshift()
+
+5) Removing element from any position using splice
+   splice(position,number)  //Here, position is the index value and the number given will that much element removed
+
+6) Copy array using slice()
+   let copy = names.slice();
+   console.log(copy)  //it copies the array list
+____________________________________________________________________________________________________________________________
+
+Functions:
+_____________
+
+* Functions are block of code designed to perform certain task.
+* It is used to achieve reusuability of the code whenever required without implementing it again and again.
+
+Creating a function:
+______________________
+
+function sayMyName()
+{//body starts
+  //task describe
+  console.log("Troy");
+}//body ends
+
+Calling a function:
+_____________________
+
+sayMyName();
+
+Note: Arrow function (latest way) so you can follow it see on ES6 docs.
+______________________________________________________________________________________________________________________
+
+if-else statements:
+______________________
+
+if(condition/expression)
+{
+   //body of if
+}
+else
+{
+   //body of else
+}
+
+else-if Ladder:
+___________________
+
+* add more condition
+
+if(condition)
+{
+
+}
+else if(condition)
+{
+
+}
+else if(condition)
+{
+
+}
+else
+{
+
+}
+
+Nested if:
+_____________
+
+if(condition)
+{
+   if(condition)
+   {
+
+   }
+}
+
+Truthy and falsy values:
+__________________________
+
+1) 23       ->  true
+2) -23      ->  true  //(negative value also true)
+3) "Hello"  ->  true
+4) true     ->  true
+5) false    ->  false
+6) 0        ->  false
+7) -0       ->  false
+8) undefined->  false
+9) null     ->  false
+10) NaN     ->  false
+
+____________________________________________________________________________________________________________________________
+
+Loops:
+________
+
+* Loops are used to execute the same block of code again and again as long as certain condition is met.
+* It used to automate the repetitive task to save time and effort.
+
+Types of loops:
+________________
+
+1) for loop:
+_____________
+
+* for loop is entry controlled loop.
+
+Syntax:  for(initialization; condition; inc/dec)
+         {
+            //for block code
+         }
+
+Ex: for(let i=1; i<=5; i++)
+    {
+       console.log(`Hey ${i}`);
+    }
+
+Output:
+Hey 1
+Hey 2
+Hey 3
+Hey 4
+Hey 5
+
+2) While loop:
+________________
+
+* We can use while loop when we don't know the iteration.
+* while loop is entry controlled loop.
+
+Syntax:  while(condition)
+         {
+            //while code block
+            //inc/dec
+         }
+
+Ex: let a = 1;
+    while(a<5)
+    {
+       ......
+    }
+
+3) do-while loop:
+___________________
+
+* do-while loop is similar like while loop but whatever you do the code will execute one time is must as do is at first
+  declared then afterwards while is declarerd.
+* do-while is exit controlled loop.
+
+Syntax: do
+        {
+           //task code
+           //inc/dec
+        }
+        while(condition)
+
+4) for in loop:
+___________________
+
+* It is a special type of loop that iterates over the properties of an object or the elements of an array.
+
+Creating object:
+__________________
+
+let ob1 = {
+   name: "John",        //keys: values
+   phone: 9989887865
+   address: "City area"
+};
+
+Now traversing through the object one by one using for-in loop:
+___________________________________________________________________
+
+for(let k in ob1)  //instead of k we can use any variable name
+{
+   console.log(`${k} => ${ob1[k]}`);   //k(key) is used as index to get the value 
+}
+
+Note: Using for-in loop we can fetch the key (key in terms of index value) and value through array.
+__________________________________________________________________________________________________________________________
+
+for of loop:
+_______________
+
+* ES6 has introduced a new for-of loop which allows us to iterate over arrays or other iterable objects like strings very
+  easily.
+
+Ex: let a = ["ABC", "DEF", "GHI"];
+    for(let item of a)
+    {
+       console.log(item);
+    }
+    Output: ABC
+            DEF
+            GHI
+
+
+Note: We can use for-of loop traverse array elements and string chars traverse.
+      It cannot fetch key:value. Hence, here object is not iterable.
+
+___________________________________________________________________________________________________________________________
+
+Objects & object operations:
+______________________________
+
+* JS is an object based language.
+* A JS object is just a collection of key value pairs.
+
+Syntax:  {Key : Value}
+
+Creating object:
+__________________
+
+{it consist properties of a object}
+
+Ex: {
+      name: "John",        //keys: values
+      phone: 9989887865
+      address: "City area"
+    }
+
+Note: we can also store functions inside object like this:
+
+Ex: let ob = {
+      name: "John",        //keys: values
+      "last name": "Corner";  //to use space in between we can do it by "" in key
+      phone: 9989887865
+      address: "City area"
+      display: function()
+               {
+                  console.log(this.name);
+                  return this.name;  //if not printing in console
+               }
+    }
+
+Here, this keyword clarifies that we are using current object.
+
+Accessing the properties:
+___________________________
+
+1)By using reference operator(.):
+  console.log(ob.name);
+  Output: John
+
+2)By using array:
+  console.log(ob["last name"]);
+  Output: Corner
+
+3)Calling the function using key:
+  ob.display();
+  Output: John
+
+4)To traverse get each one by one:
+  for(let key in ob)
+  {
+     console.log(`${key} => ${ob[key]}`);
+  }
+  Note: the function code gets printed but if you want to display the output then use paranthesis like ob."display"();
+
+
+dynamically adding property to object:
+_________________________________________
+
+ob["email"] = "your@gmail.com";
+console.log(ob);
+Output: it will include email key
+
+deleting property:
+____________________
+
+delete ob["name"];
+___________________________________________________________________________________________________________________________
+
+
+DOM (Document object model):
+_____________________________
+
+* It is a platform and language independent model to represent the HTML or XML documents.
+* It defines logical structure of documents and the way in which they can be accessed and manipulated by an
+  application program.
+* In DOM, all parts of the document, such as elements, attributes, text are organized in a hierarchical tree like structure.
+* In DOM, the individual parts of the document are knows as nodes.
+* DOM helps representing html code to object and manipulate.
+
+DOM selectors:
+________________
+
+1) Targeting the main tags like <html> , <head> , <body>
+
+let ht = document.documentElement  //the document selects the whole page then documentElement gives the html code part
+let bo = document.body;    //document.element_name
+let hd = document.head;
+
+Now printing the code:
+
+console.log(ht);
+console.log(bo);
+console.log(hd);
+
+2) Selecting elements by id:
+______________________________
+
+let h1 = document.getElementById("banner");  //banner is the id name
+console.log(h2);  //it will print element code which has id name "banner"
+
+Now changing the inner text by using innerHTML:
+________________________________________________
+
+h1.innerHTML = "Hello";   //say in h1 code there was previously wriite "Hi" but it gets changed dynamically here.
+
+Changing color:
+________________
+
+h1.style.color = "blue";
+
+Changing background color:
+___________________________
+
+h1.style.backgroundColor = "black";
+
+
+3) Selecting element by ClassName:
+___________________________________
+
+let e1 = document.getElementByClassName("myclass");
+
+for(let i of e1)
+{
+    console.log(i);
+    i.style.color = "blue";
+    i.style.backgroundColor = "black";
+}
+
+
+4) Selecting element with the help of CSS selector:
+____________________________________________________
+
+1) querySelector : single element fetch
+2) querySelectorAll : list of elements fetch
+
+Ex: let e = document.querySelectorAll(".myclass");
+    console.log(e);
+Note: selector accessed by . operator
+Note: Now, also u can use style operation and perform in for of loop.
+
+________________________________________________________________________________________________________________________
+
+DOM styling:
+______________
+
+1) First select the elements.
+2) Then store it in variable.
+3) You can use loop if you want to repeat.
+4) Then we can use variable which has the element and perform operations on it like styling property on the object(element).
+
+
+
+*************************
+Done till Playlist : 24
+*************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+

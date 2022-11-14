@@ -1,0 +1,177 @@
+Git & Github
+____________
+
+* Github is basically a online repository hub where we can store our projects files and can give access to global users and can do share development changes, also maintaining version changes (history of the project).
+
+* Git is a command line software service which can be installed to our computer using which we can interact with Github.
+
+Install Github:
+_______________
+
+* sudo apt-get install git
+* check version for confirmation of installation: git --version
+
+#helping-hand:
+______________
+
+* learngitbranching.js.org
+
+Assign your username and email for global access and to identify yourself:
+__________________________________________________________________________
+
+* git config --global user.name "Avatar"
+* git config --global user.email "avatar@gmail.com"
+
+To verify if user is set: git config --global user.name/user.email
+
+================================================================================================================================
+
+
+Step1: To start creating a empty git Repository to maintain history of the project:
+___________________________________________________________________________________
+
+* It stores all folder/files in .gitignore (Linux os) and is hidden.
+
+Command:
+________
+
+* git init
+
+
+================================================================================================================================
+
+
+Step 2: To check the cuurent status:
+____________________________________
+
+* git status
+
+
+===============================================================================================================================
+
+
+Step 3: To add untracked files so that later we can commit also known as (staging area):
+________________________________________________________________________________________
+
+
+To move to (staging area):
+__________________________
+
+* git add (filname is single file present)
+* git add . (when more than one file present)
+
+
+To remove from (staging area):
+______________________________
+
+* git restore --staged (single_name)
+* git restore --staged . (for all)
+
+
+================================================================================================================================
+
+
+
+Step 4: To (commit) all the files which are waiting at (staging area):
+______________________________________________________________________
+
+* git commit -m "initial commit"  (u can provide any meaningful message)
+
+
+
+================================================================================================================================
+
+
+
+Step 5: To see all previous and currrent commit:
+________________________________________________
+
+* git log
+* u will see something like e12b3bd7e564443799a1f73e3190cc9ae530ae5a (this is the hash code which is unique to every commit)
+
+
+================================================================================================================================
+
+
+Step 6: Now to rollback/Undo to a commit we can use:
+____________________________________________________
+
+* git reset (hash_code_id)
+
+
+================================================================================================================================
+
+
+Step 7: Now to whatever you have modified/deleted and they are in staging area u move them to back stage(stash_area):
+_____________________________________________________________________________________________________________________
+
+Command:
+________
+
+* git stash  (And, after this command when u check git status it's say all clean but it's there in back stage)
+
+
+
+
+Step 8: Now, if you want to bring back the changes which are waiting in back stage(stash_area) to staging area:
+_______________________________________________________________________________________________________________
+
+Command:
+________
+
+* git stash pop (pops out all to staging area)
+
+
+
+Step 9: Now, if you want to clear all which is there in back stage(stash_area):
+_______________________________________________________________________________
+
+Command:
+________
+
+* git stash clear (empty the stash area)
+
+
+================================================================================================================================
+
+Step 7: Also to change branch we use checkout:
+______________________________________________
+
+* git checkout (branch_name_like_master)
+
+
+================================================================================================================================
+
+
+
+Step 8: To create a branch:
+___________________________
+
+* git branch (branch_name)
+* git branch (to see all branches)
+
+
+================================================================================================================================
+
+
+
+Step 9: To merge branches:
+__________________________
+
+* git merge dev (current branch is master it gets merged with dev branch)
+
+
+================================================================================================================================
+
+
+
+Step 10: To ignore some files from tracking done by git use:
+____________________________________________________________
+
+* Make a file .gitignore and add secret code there which will be ignored by git
+
+
+================================================================================================================================
+
+
+
